@@ -1,0 +1,41 @@
+.custom-field {
+  text-align: left;
+  font-size: 14px;
+  position: relative;
+  display: block;
+  border-top: 20px solid transparent;
+  input {
+    border: none;
+    background: #f2f2f2;
+    padding: 12px;
+    border-radius: 3px;
+    width: 250px;
+    font-size: 14px;
+  }
+  .placeholder {
+    position: absolute;
+    left: 12px;
+    top: 22px;
+    transform: translateY(-50%);
+    width: calc(100% - 24px);
+    color: $grey;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: 
+    top 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+  }
+}
+%up {
+  top: -10px;
+  font-size: 10px;
+  color: $dark;
+}
+.custom-field input:not(:placeholder-shown) + .placeholder {
+  @extend %up; 
+}
+.custom-field input:focus + .placeholder {
+  @extend %up; 
+}

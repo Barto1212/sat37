@@ -1,0 +1,45 @@
+
+.grid {
+  padding: 0;
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  &__item {
+    padding: 2rem 2rem 4rem 2rem;
+    font-weight: bold;
+    width: 33.33%;
+    &__title {
+      font-size: 1.5rem;
+      color: $dark;
+      margin-bottom: 1rem;
+    }
+    &__body {
+      font-weight: normal;
+    }
+    &__date {
+      text-transform: uppercase;
+    }
+  }
+}
+
+@include sizeXl {
+  .grid__item {
+    width: 50%;
+  }
+}
+@include sizeLg {
+  .grid__item {
+    width: 100%;
+  }
+}
+@include sizeMd {
+  .grid__item {
+    padding: 2rem 0 4rem 0;
+  }
+}
+@include sizeSm {
+  .grid {
+    margin: 0;
+  }
+}

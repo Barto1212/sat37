@@ -1,0 +1,22 @@
+@mixin title {
+  color: $dark;
+  margin-top: 2rem
+}
+
+h1 {
+  @include title;
+  font-size: 2rem;
+  margin: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2 {
+  @include title;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  @include title;
+}

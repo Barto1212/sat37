@@ -1,0 +1,30 @@
+@import "./variables.scss";
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  font-family: $Poppins;
+  color: $textLight;
+
+}
+
+#root {
+  height: 100%;
+}
+
+@import "./image.scss";
+@import "./titles.scss";
+@import "./butons.scss";
+@import "./modal.scss";
+@import "./input.scss";
+
+.article {
+  clear: both;
+  color: $textLight;
+  margin: 0 auto;
+}
+
+@import "./grid.scss"

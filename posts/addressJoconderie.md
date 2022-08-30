@@ -1,0 +1,9 @@
+---
+title: "La bouchonnerie change d'adresse"
+date: '2022-06-15'
+---
+
+Bonjour,  
+La jocondienne a le plaisir de vous informer du transfert définitif de son magasin dédié au matériel d'apiculture et de cave au :  
+1 rue de Freyssinet  
+37300 Joué les Tours

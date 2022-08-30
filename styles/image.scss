@@ -1,0 +1,16 @@
+.image {
+  padding: 1rem;
+  position: relative;
+  &__left {
+    float: left;
+    padding-right: 3rem;
+  }
+  &__right {
+    float: right;
+    padding-left: 3rem;
+  }
+  @include sizeXl {
+    float: none;
+    padding: 1rem;
+  }
+}
