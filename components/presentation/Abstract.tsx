@@ -3,7 +3,7 @@ import Image from "next/image"
 const Abstract = () => (
 	<div className="article">
 	<h1>Qui sommes nous ?</h1>
-		<div className="image image__left">
+		<div className="photo photo--left">
 			<Image
 				src='/img/recolte.jpg'
 				alt="Récolte du miel"

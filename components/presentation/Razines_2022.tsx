@@ -3,7 +3,7 @@ import Image from "next/image"
 const Razines_2022 = () => (
 	<div className="article">
     <h2>Comice du monde rural de Richelais Razines le 2 juin 2022</h2>
-    <div className="image__right">
+    <div className="photo photo--right">
       <Image
         src='/img/razines-2022-photo.jpg'
         alt="Stand sat37 Razines"

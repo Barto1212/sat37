@@ -1,11 +1,14 @@
-.image {
+.photo {
   padding: 1rem;
   position: relative;
-  &__left {
+  img {
+    border-radius: 0.5rem;
+  }
+  &--left {
     float: left;
     padding-right: 3rem;
   }
-  &__right {
+  &--right {
     float: right;
     padding-left: 3rem;
   }
