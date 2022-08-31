@@ -23,12 +23,9 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
           <p className='closeBtn' onClick={onClose}>
             X
           </p>
-          <div className='stack stack--vertical'>
+          <div className='container'>
             {LogInMode ? <LogIn stateForm={stateForm} /> : <SignIn stateForm={stateForm}/>}
           </div>
-          <button onClick={() => setLogInMode(o => !o)} className='btn-primary'>
-              <span className='bold'>Créer un compte</span>
-            </button>
           <div className='btnContainer'>
             <button className='btn-primary'>
               <span className='bold'>Connection</span>
@@ -37,6 +34,11 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
               <span className='bold'>NO</span>
             </button> */}
           </div>
+          {LogInMode ? 
+            <p>Pas encore de compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour en créer un. </p> :
+            <p>Déjà un compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour vous identifier. </p>
+          }
+          
         </div>
       </div>
     </div>

@@ -80,7 +80,9 @@ const Header = ({setIsOpen}) => {
           <ul>
             {itemsList.map(item => (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} />))}
           </ul>
-          <button className='btn-primary' onClick={() => setIsOpen(o => !o)}>Connexion admin</button>
+          <button className='btn-svg' onClick={() => setIsOpen(o => !o)}>
+            <Image src="/img/svg/user-regular.svg" width={25} height={25} />  
+          </button>
         </nav>
         <div className={styles.header__content__toggle}>
           {openMenu ? <AiOutlineClose onClick={menuToggleHandler} /> : <BiMenuAltRight onClick={menuToggleHandler} />}

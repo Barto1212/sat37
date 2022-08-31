@@ -1,13 +1,18 @@
-.stack {
+.container {
+  display: block;
+  margin: 3rem;
+  padding: 2rem;
+}
+@mixin stack($flexDirection) {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 3rem;
-  padding: 2rem;
-  &--vertical {
-    flex-direction: column;
-  }
-  &--horizontal {
-    flex-direction: row;
-  }
+  flex-direction: $flexDirection;
+}
+.stack-vertical {
+  @include stack(column);
+}
+
+.stack-horizontal {
+  @include stack(row);
 }
