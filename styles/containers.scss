@@ -1,0 +1,13 @@
+.stack {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 3rem;
+  padding: 2rem;
+  &--vertical {
+    flex-direction: column;
+  }
+  &--horizontal {
+    flex-direction: row;
+  }
+}

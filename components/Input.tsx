@@ -2,7 +2,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { checkEmail } from '../utils/checkForm'
 
-type TypeInput = "password" | "email"
+type TypeInput = "password" | "email" | "text"
 
 type Props = {
   stateForm: any[]
