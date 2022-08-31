@@ -27,6 +27,11 @@
     color 0.3s ease,
     font-size 0.3s ease;
   }
+  &__eye {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+  }
 }
 %up {
   top: -10px;
