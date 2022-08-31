@@ -1,5 +1,5 @@
-import mongoConnect from '../../../utils/mongoConnect.ts'
-import Test from '../../../utils/models/Test.js'
+import mongoConnect from '../../utils/mongoConnect'
+import Test from '../../utils/models/Test'
 
 export default async (req, res) => {
   const { name, email } = req.body

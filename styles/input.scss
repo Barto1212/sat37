@@ -5,12 +5,26 @@
   display: block;
   border-top: 20px solid transparent;
   input {
-    border: none;
+    border: 2px solid white;
     background: #f2f2f2;
     padding: 12px;
-    border-radius: 3px;
+    border-radius: 5px;
     width: 250px;
     font-size: 14px;
+    outline: none;
+  }
+  transition: border 0.3s ease;
+  &.custom-field--success {
+    input:focus {
+      transition: border 0.3s ease;
+      border: 2px solid green;
+    }
+  }
+  &.custom-field--error {
+    input:focus {
+      transition: border 0.3s ease;
+      border: 2px solid red;
+    }
   }
   .placeholder {
     position: absolute;

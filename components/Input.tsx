@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useState } from "react"
+import { checkEmail } from '../utils/checkForm'
 
 type TypeInput = "password" | "email"
 
@@ -31,16 +32,22 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Function}) => any = ({ pw
 const Input: React.FC<Props> = ({stateForm, type, name, id}) => {
   const [form, setForm] = stateForm
   const [pwdVisible, setPwdVisible] = useState(false)
+  const [success, setSuccess] = useState(true)
   const value = form[id]
   const handleChange = (e: any) => {
     const newValue = e.target.value
     setForm((old: any) => ({ ...old, [id]: newValue}))
+    if (id === "email") {
+      setSuccess(checkEmail(newValue))
+    } else {
+      setSuccess(true)
+    }
   }
   const newType = type === "password" ?
     (pwdVisible ? "text" : "password") : type
 
   return (
-    <label className="custom-field">
+    <label className={`custom-field custom-field--${success ? "success" : "error"}`}>
       <input
         type={newType}
         id={id}

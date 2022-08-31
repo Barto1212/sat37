@@ -23,6 +23,7 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
             X
           </p>
           <div className='content'>
+            <input type="text" />
             <Input stateForm={stateFrom} type="email" id="email" name="Adresse email" />
             <Input stateForm={stateFrom} type="password" id="pwd" name="Mot de passe" />
           </div>
