@@ -21,7 +21,7 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
         <Image className="bees" src={nft} alt='/' />
         <div className='modalRight'>
           <p className='closeBtn' onClick={onClose}>
-            X
+            x
           </p>
           <div className='container'>
             {LogInMode ? <LogIn stateForm={stateForm} /> : <SignIn stateForm={stateForm}/>}
@@ -34,10 +34,12 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
               <span className='bold'>NO</span>
             </button> */}
           </div>
-          {LogInMode ? 
-            <p>Pas encore de compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour en créer un. </p> :
-            <p>Déjà un compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour vous identifier. </p>
-          }
+          <div className="container">
+            {LogInMode ? 
+              <p>Pas encore de compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour en créer un. </p> :
+              <p>Déjà un compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour vous identifier. </p>
+            }
+          </div>
           
         </div>
       </div>
