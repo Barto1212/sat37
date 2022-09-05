@@ -79,7 +79,7 @@ const Header = ({setIsOpen}) => {
             {itemsList.map(item => (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} />))}
           </ul>
           <button className='btn-svg' onClick={() => setIsOpen(o => !o)}>
-            <Image src="/img/svg/user-regular.svg" width={25} height={25} />  
+            <Image alt="user" src="/img/svg/user-regular.svg" width={25} height={25} />  
           </button>
         </nav>
         <div className={styles.header__content__toggle}>

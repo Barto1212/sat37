@@ -17,9 +17,11 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Function}) => any = ({ pw
   }
   const size = 15
   const imgSrc = pwdVisible ? "/img/svg/eye-slash-regular.svg" : "/img/svg/eye-regular.svg"
+  const imgAlt = pwdVisible ? "Masquer le mot de passe" : "Voir le mot de passe"
   return (
     <div className="custom-field__eye">
       <Image
+        alt={imgAlt}
         onClick={handleClick}
         src={imgSrc}
         width={size}

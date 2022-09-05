@@ -1,7 +1,7 @@
 import mongoConnect from '../../../utils/mongoConnect.ts'
 import Test from '../../../utils/models/Test.js'
 
-export default async (req, res) => {
+const add = async (req, res) => {
   const { name, email } = req.body
   mongoConnect()
   const newUser = new Test({ name, email })
@@ -13,3 +13,5 @@ export default async (req, res) => {
       res.status(500).json({ error: err })
     })
 }
+
+export default add
