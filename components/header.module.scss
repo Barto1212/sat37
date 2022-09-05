@@ -67,8 +67,32 @@
                     margin-bottom: 0;
                     margin-right: calc(0.5rem + #{$spacing-md});
                 }
-            }
- 
+                .activePage::after {
+                    content: '';
+                    display: block;
+                    top: 0.8rem;
+                    left: 10%;
+                    width: 80%;
+                    height: 0;
+                    position: relative;
+                    animation: slideLeft 0.3s;
+                    border-bottom: solid $primary;
+                    @keyframes slideLeft {
+                        from {
+                            transform: scale(0);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: scale(1);
+                            opacity: 1;
+                        }
+                    }
+    
+                    @include sizeLg {
+                        content: '';
+                        display: none;
+                    }
+                }
                 li {
                     &:not(:last-child) {
                         margin-bottom: $spacing-lg;
@@ -84,8 +108,8 @@
                         border-radius: $borderRadius;
                         transition: 0.3s ease all;
                         position: relative;
-
-
+    
+    
                         &:hover {
                             background: rgba($light, 0.1);
                         }
@@ -94,31 +118,6 @@
                             background: linear-gradient(rgba($light, 0.1), rgba($light, 0.2));
                         }
                     }
-                }
-            .activePage::after {
-                content: '';
-                display: block;
-                top: 0.8rem;
-                left: 10%;
-                width: 80%;
-                height: 0;
-                position: relative;
-                animation: slideLeft 0.3s;
-                border-bottom: solid $primary;
-                @keyframes slideLeft {
-                    from {
-                        transform: scale(0);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: scale(1);
-                        opacity: 1;
-                    }
-                }
-
-                @include sizeLg {
-                    content: '';
-                    display: none;
                 }
             }
             &.isMenu {

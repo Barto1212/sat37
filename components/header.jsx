@@ -19,13 +19,11 @@ const itemsList = [
 const Item = ({item, menuToggleHandler}) => {
   const router = useRouter()
   return (
-    <div className={router.asPath === item.link ? styles.activePage : ""}>
-      <li>
-        <Link href={item.link}>
-          <a onClick={menuToggleHandler}>{item.name}</a>
-        </Link>
-      </li>
-    </div>
+    <li className={router.asPath === item.link ? styles.activePage : ""}>
+      <Link href={item.link}>
+        <a onClick={menuToggleHandler}>{item.name}</a>
+      </Link>
+    </li>
   )
 }
 

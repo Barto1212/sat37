@@ -20,6 +20,7 @@ export default function Layout({
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <title>{siteTitle}</title>
+        <meta charSet="utf-8" />
         <meta
           name="description"
           content="Promouvoir l'apiculture en Touraine"
