@@ -22,7 +22,7 @@ const Assurance = () => (
 			connaissance des dommages. Par ailleurs il est nécessaire de déposer une plainte auprès de la police.
 		</p>
 		<p>
-			Le syndicat est tituldaire d'une police d'assurance garantissant les risques inhérents à l'ensemble de ses activités et à celle de ses 
+			Le syndicat est titulaire d'une police d'assurance garantissant les risques inhérents à l'ensemble de ses activités et à celle de ses 
 			adhérents dans ce cadre.
 		</p>
 	</>
