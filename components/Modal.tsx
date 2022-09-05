@@ -28,7 +28,7 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
           </div>
           <div className='btnContainer'>
             <button className='btn-primary'>
-              <span className='bold'>Connection</span>
+              <span className='bold'>Connexion</span>
             </button>
             {/* <button className='btn-secondary'>
               <span className='bold'>NO</span>
