@@ -1,17 +1,17 @@
 import Image from "next/image"
-import { useState } from "react"
+import { useState, Dispatch, SetStateAction, BaseSyntheticEvent } from "react"
 import { checkEmail } from '../utils/checkForm'
 
 type TypeInput = "password" | "email" | "text"
 
 type Props = {
-  stateForm: any[]
+  stateForm: [object, Dispatch<SetStateAction<object>>]
   type: TypeInput,
   name: string,
   id: string
 }
 
-const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Function}) => any = ({ pwdVisible, setPwdVisible }) => {
+const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<boolean>>}) => JSX.Element = ({ pwdVisible, setPwdVisible }) => {
   const handleClick = () => {
     setPwdVisible((v: boolean) => !v)
   }
@@ -33,12 +33,12 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Function}) => any = ({ pw
 
 const Input: React.FC<Props> = ({stateForm, type, name, id}) => {
   const [form, setForm] = stateForm
-  const [pwdVisible, setPwdVisible] = useState(false)
+  const [pwdVisible, setPwdVisible] = useState<boolean>(false)
   const [success, setSuccess] = useState(true)
   const value = form[id]
-  const handleChange = (e: any) => {
+  const handleChange = (e: BaseSyntheticEvent) => {
     const newValue = e.target.value
-    setForm((old: any) => ({ ...old, [id]: newValue}))
+    setForm((old) => ({ ...old, [id]: newValue}))
     if (id === "email") {
       setSuccess(checkEmail(newValue))
     } else {
