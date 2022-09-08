@@ -5,21 +5,21 @@ const Revues = () => {
 		{
 			name: "Abeilles et fleurs",
 			link: "logo_abeilles_et_fleurs.jpg",
-			size: {with: 300, height: 120},
+			size: { with: 300, height: 120 },
 			edition: "Union Nationnale de l'Apiculture Française",
 			prix: 51
 		},
 		{
 			name: "L'abeille de france",
 			link: "labeille_de_france.png",
-			size: {with: 300, height: 120},
+			size: { with: 300, height: 120 },
 			edition: "Syndicat nationnal d'apiculture",
 			prix: 53
 		},
 		{
 			name: "La santé de l'abeille",
 			link: "fnosad.gif",
-			size: {with: 300, height: 300},
+			size: { with: 300, height: 300 },
 			edition: "Fédération Nationnale des Organisations Sanitaires Apicoles Départementales",
 			prix: 49
 		},

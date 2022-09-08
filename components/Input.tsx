@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { useState, Dispatch, SetStateAction, BaseSyntheticEvent, useEffect } from "react"
+import { useState, Dispatch, SetStateAction, BaseSyntheticEvent } from "react"
 import { checkEmail } from '../utils/checkForm'
 
 type TypeInput = "password" | "email" | "text"
@@ -31,14 +31,14 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<b
   )
 }
 
-const Input: React.FC<Props> = ({stateForm, type, name, valid = true}) => {
+const Input: React.FC<Props> = ({ stateForm, type, name, valid = true }) => {
   const [form, setForm] = stateForm
   const [pwdVisible, setPwdVisible] = useState<boolean>(false)
   const [success, setSuccess] = useState(true)
   const value = form[name]
   const handleChange = (e: BaseSyntheticEvent) => {
     const newValue = e.target.value
-    setForm((old) => ({ ...old, [name]: newValue}))
+    setForm((old) => ({ ...old, [name]: newValue }))
     if (type === "email") {
       setSuccess(checkEmail(newValue))
     } else {

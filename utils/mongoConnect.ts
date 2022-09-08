@@ -5,7 +5,7 @@ const mongoConnect = async () => {
   const username = encodeURIComponent(MONGODB_USERNAME)
   const password = encodeURIComponent(MONGODB_PASSWORD)
   const cluster = MONGODB_CLUSTER_ADRESS
-  let uri =
+  const uri =
     `mongodb+srv://${username}:${password}@${cluster}/?retryWrites=true&w=majority`
   mongoose.connect(uri)
 }

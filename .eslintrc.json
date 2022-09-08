@@ -6,6 +6,7 @@
   ],
   "rules": {
     "react/no-unescaped-entities": 0,
-    "prefer-const": "error"
+    "prefer-const": "error",
+    "object-curly-spacing": ["error", "always"]
 }
 }

@@ -1,13 +1,13 @@
 import Input from "./Input"
 
-const LogIn = ({stateForm}) => (
+const LogIn = ({ stateForm }) => (
   <div className="stack-vertical">
     <Input stateForm={stateForm} type="email" name="Adresse email" />
     <Input stateForm={stateForm} type="password" name="Mot de passe" />
   </div>
 )
 
-const SignIn = ({stateForm}) => {
+const SignIn = ({ stateForm }) => {
   const valid = stateForm[0]["Mot de passe"] === stateForm[0]["Confirmation"]
   return (
     <>

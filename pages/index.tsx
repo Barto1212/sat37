@@ -24,7 +24,7 @@ export async function getStaticProps() {
 
 
 
-const News: React.FC<Articles> = ({articles}) => {
+const News: React.FC<Articles> = ({ articles }) => {
   return (
     <Layout>
       <section>

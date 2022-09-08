@@ -10,7 +10,7 @@ interface articleProp {
 	title: string | JSX.Element
 }
 
-const ArticleLi: React.FC<articleProp> = ({children, title}) => {
+const ArticleLi: React.FC<articleProp> = ({ children, title }) => {
 return (
 	<li className="grid__item">
 		<h2 className="grid__item__title">{title}</h2>
