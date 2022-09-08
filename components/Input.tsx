@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { useState, Dispatch, SetStateAction, BaseSyntheticEvent } from "react"
+import { useState, Dispatch, SetStateAction, BaseSyntheticEvent, useEffect } from "react"
 import { checkEmail } from '../utils/checkForm'
 
 type TypeInput = "password" | "email" | "text"
@@ -8,6 +8,7 @@ type Props = {
   stateForm: [object, Dispatch<SetStateAction<object>>]
   type: TypeInput,
   name: string,
+  valid?: boolean
 }
 
 const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<boolean>>}) => JSX.Element = ({ pwdVisible, setPwdVisible }) => {
@@ -30,7 +31,7 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<b
   )
 }
 
-const Input: React.FC<Props> = ({stateForm, type, name}) => {
+const Input: React.FC<Props> = ({stateForm, type, name, valid = true}) => {
   const [form, setForm] = stateForm
   const [pwdVisible, setPwdVisible] = useState<boolean>(false)
   const [success, setSuccess] = useState(true)
@@ -38,17 +39,18 @@ const Input: React.FC<Props> = ({stateForm, type, name}) => {
   const handleChange = (e: BaseSyntheticEvent) => {
     const newValue = e.target.value
     setForm((old) => ({ ...old, [name]: newValue}))
-    if (name === "email") {
+    if (type === "email") {
       setSuccess(checkEmail(newValue))
     } else {
       setSuccess(true)
     }
   }
   const newType = type === "password" ?
-    (pwdVisible ? "text" : "password") : type
+  (pwdVisible ? "text" : "password") : type
+  console.log(success, valid)
 
   return (
-    <label className={`custom-field custom-field--${success ? "success" : "error"}`}>
+    <label className={`custom-field custom-field--${(success && valid) ? "success" : "error"}`}>
       <input
         type={newType}
         id={name}

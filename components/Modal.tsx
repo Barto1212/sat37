@@ -42,9 +42,6 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
             <button className='btn-primary'>
               <span className='bold'>Connexion</span>
             </button>
-            {/* <button className='btn-secondary'>
-              <span className='bold'>NO</span>
-            </button> */}
           </div>
           <div className="container">
             {LogInMode ? 
