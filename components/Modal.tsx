@@ -1,4 +1,3 @@
-import nft from "../public/img/abeilles-entree-1920-1080.jpg"
 import Image from "next/image"
 import { MouseEventHandler, useState, useEffect } from 'react'
 import { LogIn, SignIn } from './ProfileManager'
@@ -30,7 +29,13 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
         className={`modalContainer${open ? " modalContainer--visible" : " modalContainer--hidden"}`}
         onClick={e => e.stopPropagation()}
       >
-        <Image className="bees" src={nft} alt='/' />
+
+        <Image
+            src="/img/abeille-chardon-3850-3450.jpg"
+            alt='Abeille sur un chardon'
+            width={3850*0.15}
+            height={3450*0.15}
+          />
         <div className='modalRight'>
           <p className='closeBtn' onClick={onClose}>
             x
