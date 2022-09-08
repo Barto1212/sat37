@@ -1,16 +1,23 @@
 import nft from "../public/img/abeilles-entree-1920-1080.jpg"
 import Image from "next/image"
-import { MouseEventHandler, useState } from 'react'
+import { MouseEventHandler, useState, useEffect } from 'react'
 import { LogIn, SignIn } from './ProfileManager'
 
 type Props = {
   open: boolean,
   onClose: MouseEventHandler<HTMLDivElement>
 }
+const inputForm = {email: "", pwd: ""}
 
 const Modal:React.FC<Props> = ({ open, onClose }) => {
-  const stateForm = useState({email: "", pwd: ""})
-  const [LogInMode, setLogInMode] = useState(true)
+  const stateForm = useState(inputForm)
+  const [LogInMode, setLogInMode] = useState<boolean>(true)
+  
+  // Clean form on open
+  const setStateForm = stateForm[1]
+  useEffect(() => {
+    setStateForm(inputForm)
+  }, [setStateForm, open])
 
   return (
     <div onClick={onClose} className={`overlay${open ? " overlay--visible" : " overlay--hidden"}`}>
