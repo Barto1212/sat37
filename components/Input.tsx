@@ -8,7 +8,6 @@ type Props = {
   stateForm: [object, Dispatch<SetStateAction<object>>]
   type: TypeInput,
   name: string,
-  id: string
 }
 
 const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<boolean>>}) => JSX.Element = ({ pwdVisible, setPwdVisible }) => {
@@ -31,15 +30,15 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<b
   )
 }
 
-const Input: React.FC<Props> = ({stateForm, type, name, id}) => {
+const Input: React.FC<Props> = ({stateForm, type, name}) => {
   const [form, setForm] = stateForm
   const [pwdVisible, setPwdVisible] = useState<boolean>(false)
   const [success, setSuccess] = useState(true)
-  const value = form[id]
+  const value = form[name]
   const handleChange = (e: BaseSyntheticEvent) => {
     const newValue = e.target.value
-    setForm((old) => ({ ...old, [id]: newValue}))
-    if (id === "email") {
+    setForm((old) => ({ ...old, [name]: newValue}))
+    if (name === "email") {
       setSuccess(checkEmail(newValue))
     } else {
       setSuccess(true)
@@ -52,7 +51,7 @@ const Input: React.FC<Props> = ({stateForm, type, name, id}) => {
     <label className={`custom-field custom-field--${success ? "success" : "error"}`}>
       <input
         type={newType}
-        id={id}
+        id={name}
         value={value}
         onChange={handleChange}
         name={name}
