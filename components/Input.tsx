@@ -47,7 +47,6 @@ const Input: React.FC<Props> = ({ stateForm, type, name, valid = true }) => {
   }
   const newType = type === "password" ?
   (pwdVisible ? "text" : "password") : type
-  console.log(success, valid)
 
   return (
     <label className={`custom-field custom-field--${(success && valid) ? "success" : "error"}`}>
