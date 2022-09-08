@@ -16,8 +16,8 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<b
     setPwdVisible((v: boolean) => !v)
   }
   const size = 15
-  const imgSrc = pwdVisible ? "/img/svg/eye-slash-regular.svg" : "/img/svg/eye-regular.svg"
-  const imgAlt = pwdVisible ? "Masquer le mot de passe" : "Voir le mot de passe"
+  const imgSrc = `/img/svg/eye${pwdVisible ? "-slash" : ""}-regular.svg`
+  const imgAlt = `${pwdVisible ? "Masquer" : "Voir"} le mot de passe`
   return (
     <div className="custom-field__eye">
       <Image
