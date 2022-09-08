@@ -8,15 +8,15 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from 'react';
 
 const itemsList = [
-  {name: "Actualités", link: "/"},
-  {name: "Présentation", link: "/presentation"},
-  {name: "Adhésion", link: "/adhesion"},
+  { name: "Actualités", link: "/" },
+  { name: "Présentation", link: "/presentation" },
+  { name: "Adhésion", link: "/adhesion" },
   // {name: "Fiscalité", link: "/fiscalite"},
   // {name: "Rucher école", link: "/rucherecole"},
   // {name: "Mielerie", link: "/mielerie"},
 ]
 
-const Item = ({item, menuToggleHandler}) => {
+const Item = ({ item, menuToggleHandler }) => {
   const router = useRouter()
   return (
     <li className={router.asPath === item.link ? styles.activePage : ""}>
@@ -27,7 +27,7 @@ const Item = ({item, menuToggleHandler}) => {
   )
 }
 
-const Header = ({setIsOpen}) => {
+const Header = ({ setIsOpen }) => {
   const [openMenu, setOpenMenu] = useState(false)
   const [size, setSize] = useState({
     width: undefined,
