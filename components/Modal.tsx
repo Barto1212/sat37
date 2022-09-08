@@ -7,7 +7,7 @@ type Props = {
   open: boolean,
   onClose: MouseEventHandler<HTMLDivElement>
 }
-const inputForm = {email: "", pwd: ""}
+const inputForm = {}
 
 const Modal:React.FC<Props> = ({ open, onClose }) => {
   const stateForm = useState(inputForm)
