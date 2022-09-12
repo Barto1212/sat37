@@ -1,4 +1,3 @@
-import nft from "../public/img/abeilles-entree-1920-1080.jpg"
 import Image from "next/image"
 import { MouseEventHandler, useState, useEffect } from 'react'
 import { LogIn, SignIn } from './ProfileManager'
@@ -27,11 +26,17 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
   return (
     <div onClick={onClose} className={`overlay${open ? " overlay--visible" : " overlay--hidden"}`}>
       <div
-        className={`modalContainer${open ? " modalContainer--visible" : " modalContainer--hidden"}`}
+        className={`modal${open ? " modal--visible" : " modal--hidden"}`}
         onClick={e => e.stopPropagation()}
       >
-        <Image className="bees" src={nft} alt='/' />
-        <div className='modalRight'>
+
+        <Image
+            src="/img/abeille-chardon-3850-3450.jpg"
+            alt='Abeille sur un chardon'
+            width={3850*0.15}
+            height={3450*0.15}
+          />
+        <div className='modal__content'>
           <p className='closeBtn' onClick={onClose}>
             x
           </p>
@@ -43,7 +48,7 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
               <span className='bold'>Connexion</span>
             </button>
           </div>
-          <div className="container">
+          <div className="container modal__content__text">
             {LogInMode ? 
               <p>Pas encore de compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour en créer un. </p> :
               <p>Déjà un compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour vous identifier. </p>
