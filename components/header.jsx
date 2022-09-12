@@ -27,12 +27,16 @@ const Item = ({ item, menuToggleHandler }) => {
   )
 }
 
-const Header = ({ setIsOpen }) => {
+const Header = ({ setModalIsOpen }) => {
   const [openMenu, setOpenMenu] = useState(false)
   const [size, setSize] = useState({
     width: undefined,
     height: undefined
   })
+  const handleUserClick = () => {
+    setModalIsOpen(o => !o)
+    setOpenMenu(o => !o)
+  }
   useEffect(() => {
       setSize({
         width: window.innerWidth,
@@ -78,7 +82,7 @@ const Header = ({ setIsOpen }) => {
           <ul>
             {itemsList.map(item => (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} />))}
           </ul>
-          <button className='btn-svg' onClick={() => setIsOpen(o => !o)}>
+          <button className='btn-svg' onClick={handleUserClick}>
             <Image alt="user" src="/img/svg/user-regular.svg" width={25} height={25} />  
           </button>
         </nav>

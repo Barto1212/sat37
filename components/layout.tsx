@@ -6,15 +6,13 @@ import { useState } from 'react'
 
 export const siteTitle = "Syndicat de l'apiculture tourangelle"
 
-
-
 export default function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [modalIsOpen, setIsOpen] = useState(false)
-  const closeModal = (o) => setIsOpen(!o)
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const closeModal = (o) => setModalIsOpen(!o)
   return (
     <>
       <Head>
@@ -28,7 +26,7 @@ export default function Layout({
         <meta name="og:title" content={siteTitle} />
       </Head>
       <Modal open={modalIsOpen} onClose={closeModal} />
-      <Header setIsOpen={setIsOpen} />
+      <Header setModalIsOpen={setModalIsOpen} />
       <main className={styles.container}>{children}</main>
     </>
   )
