@@ -43,14 +43,25 @@
   }
 }
 
-.closeBtn {
-  font-family:  Helvetica,sans-serif, Arial, ;
-  font-size: 2rem;
-  color: $dark;
+.close-btn {
   cursor: pointer;
-  position: fixed;
+  position: absolute;
   top: 8px;
   right: 15px;
+  font-family:  Helvetica,sans-serif, Arial, ;
+  transition: 0.3s ease all;
+  font-size: 2rem;
+  &--dark {
+    &:hover {
+      color: $dark;
+  }
+  }
+  &--primary {
+    color: $light;
+    &:hover {
+      color: $primary;
+    }
+  }
 }
 
 .btnContainer {

@@ -37,9 +37,9 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
             height={3450*0.15}
           />
         <div className='modal__content'>
-          <p className='closeBtn' onClick={onClose}>
+          <span className='close-btn close-btn--dark' onClick={onClose}>
             x
-          </p>
+          </span>
           <div className='container'>
             {LogInMode ? <LogIn stateForm={stateForm} /> : <SignIn stateForm={stateForm}/>}
           </div>
