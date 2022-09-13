@@ -1,16 +1,11 @@
 import Image from "next/image"
 import { MouseEventHandler, useState, useEffect } from 'react'
 import { LogIn, SignIn } from './ProfileManager'
+import { inputForm } from '../utils/models/inputForm'
 
 type Props = {
   open: boolean,
   onClose: MouseEventHandler<HTMLDivElement>
-}
-const inputForm = {
-  "Pseudonyme": "",
-  "Adresse email": "",
-  "Mot de passe": "",
-  "Confirmation": "",
 }
 
 const Modal:React.FC<Props> = ({ open, onClose }) => {
