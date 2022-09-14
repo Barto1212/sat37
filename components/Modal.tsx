@@ -3,6 +3,7 @@ import { MouseEventHandler, useState, useEffect } from 'react'
 import { LogIn, SignIn } from './ProfileManager'
 import { inputForm } from '../utils/models/inputForm'
 import { signIn, logIn } from './ajax'
+import { useSnackbar } from 'notistack'
 
 type Props = {
   open: boolean,
@@ -12,6 +13,7 @@ type Props = {
 const Modal:React.FC<Props> = ({ open, onClose }) => {
   const stateForm = useState(inputForm)
   const [logInMode, setLogInMode] = useState<boolean>(true)
+  const { enqueueSnackbar } = useSnackbar()
   
   // Clean form on open
   const setStateForm = stateForm[1]
@@ -19,9 +21,30 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
     setStateForm(inputForm)
   }, [setStateForm, open])
 
-  const send = (e: MouseEventHandler<HTMLDivElement>) => {
+  const displaySnack = (message: string, type?: "success"|"error"): void => {
+    enqueueSnackbar(message, { variant: type? type : "success" })
+  }
+
+  const send = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    if (logInMode) logIn(stateForm[0]); else signIn(stateForm[0])
+    if (logInMode) {
+      logIn(stateForm[0])
+    } else {
+      signIn(stateForm[0])
+      .then(response => {
+        console.log(response)
+        if(response.status === 201) {
+          displaySnack("ok")
+        } else {
+          if (response.message) {
+            displaySnack(message, "error")
+          }
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
   } 
 
   return (

@@ -21,6 +21,10 @@ const signIn = async (req, res) => {
         res.status(201).json('bien recu et enregistré')
       })
       .catch((err) => {
+        if (/MongoServerError: E11000/.test(err)) {
+          res.status(403).json({ message: "Cet e-mail est déjà pris" })
+        }
+        console.log(err)
         res.status(500).json({ error: err })
       })
   });
