@@ -4,7 +4,7 @@ import styles from './layout.module.scss'
 import Modal from './Modal'
 import { useState } from 'react'
 
-export const siteTitle = "Syndicat de l'apiculture tourangelle"
+export const siteTitle = "L'apiculture tourangelle"
 
 export default function Layout({
   children,
