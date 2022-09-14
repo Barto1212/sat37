@@ -44,13 +44,13 @@ export default function Adhesion () {
 					<Assurance />
 				</ArticleLi>
 			</ul>
-			
+{/* 			
 			<Image
 				src="/img/abeilles-entree-1920-1080.jpg"
 				width={800}
 				height={450}
 				alt="Abeilles entrée ruche"
-			/>
+			/> */}
 			
 		</Layout>
 	)
