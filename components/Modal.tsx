@@ -27,24 +27,10 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
 
   const send = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    if (logInMode) {
-      logIn(stateForm[0])
-    } else {
-      signIn(stateForm[0])
-      .then(response => {
-        console.log(response)
-        if(response.status === 201) {
-          displaySnack("ok")
-        } else {
-          if (response.message) {
-            displaySnack(message, "error")
-          }
-        }
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    }
+    const xxxInFunc: any = logInMode ? logIn : signIn
+    xxxInFunc(stateForm[0])
+    .then(() => displaySnack("Votre compte vient d'être crée"))
+    .catch((message: string) => displaySnack(message, "error"))
   } 
 
   return (
