@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { MouseEventHandler, useState, useEffect } from 'react'
 import { LogIn, SignIn } from './ProfileManager'
-import { inputForm } from '../utils/models/inputForm'
+import { stateInput } from '../utils/models/inputForm'
 import { signIn, logIn } from './ajax'
 import { useSnackbar } from 'notistack'
 
@@ -11,14 +11,14 @@ type Props = {
 }
 
 const Modal:React.FC<Props> = ({ open, onClose }) => {
-  const stateForm = useState(inputForm)
+  const stateForm = useState(stateInput)
   const [logInMode, setLogInMode] = useState<boolean>(true)
   const { enqueueSnackbar } = useSnackbar()
   
   // Clean form on open
   const setStateForm = stateForm[1]
   useEffect(() => {
-    setStateForm(inputForm)
+    setStateForm(stateInput)
   }, [setStateForm, open])
 
   const displaySnack = (message: string, type?: "success"|"error"): void => {
