@@ -1,8 +1,8 @@
-import type { inputForm } from "../utils/models/inputForm"
+import { stateInput } from "../utils/models/inputForm"
 // const [protocol, adress, port] = document.location.origin.split(':')
 // const url = `${protocol}:${adress}`
 
-async function signIn (form: inputForm) {
+async function signIn (form: typeof stateInput) {
   const response = await fetch(
     "http://localhost:3000/api/signin",
     {
@@ -19,7 +19,7 @@ async function signIn (form: inputForm) {
   return Promise.reject(`erreur: ${responseJSON.message}`)
 }
 
-const logIn = (form: inputForm) => {
+const logIn = (form: typeof stateInput) => {
   console.log('logIn', form)
 }
 

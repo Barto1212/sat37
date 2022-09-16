@@ -1,27 +1,35 @@
-export const inputForm = {
+function checkEmail(input: string): boolean {
+  if (!(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(input))) {
+    return false
+  }
+  return true
+}
+
+const checkContent = (content: string): boolean => {
+  if (content == "") return false
+}
+
+
+const inputForm = {
   "Pseudonyme": "",
   "Adresse email": "",
   "Mot de passe": "",
   "Confirmation": "",
-}
-export type inputForm = {
-  "Pseudonyme": string,
-  "Adresse email": string,
-  "Mot de passe": string,
-  "Confirmation": string,
 }
 type inputFormArrayType = {
   name: string,
   label: string,
   type: "password" | "email" | "text",
   signInField: boolean,
-  logInField: boolean
+  logInField: boolean,
+  checkValue: typeof checkEmail | typeof checkContent
 }[]
-export const inputFormArray: inputFormArrayType = [
-  { name: "pseudo",           label: "Pseudonyme",      type: "text",       signInField: true, logInField: false  },
-  { name: "email",            label: "Adresse email",   type: "email",      signInField: true, logInField: true   },
-  { name: "password",         label: "Mot de passe",    type: "password",   signInField: true, logInField: true   },
-  { name: "confirmPassword",  label: "Confirmation",    type: "password",   signInField: true, logInField: false  },
+
+const inputFormArray: inputFormArrayType = [
+  { name: "pseudo",           label: "Pseudonyme",      type: "text",       signInField: true, logInField: false, checkValue: checkContent    },
+  { name: "email",            label: "Adresse email",   type: "email",      signInField: true, logInField: true,  checkValue: checkEmail    },
+  { name: "password",         label: "Mot de passe",    type: "password",   signInField: true, logInField: true,  checkValue: checkContent    },
+  { name: "confirmPassword",  label: "Confirmation",    type: "password",   signInField: true, logInField: false, checkValue: checkContent    },
 ]
 
 const createState = () => {
@@ -30,4 +38,6 @@ const createState = () => {
   return state
 }
 
-export const stateInput = createState()
+const stateInput = createState()
+
+export { stateInput, inputFormArray, inputForm }
