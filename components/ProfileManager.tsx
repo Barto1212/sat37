@@ -8,7 +8,7 @@ const LogIn = ({ stateForm }) => (
       && <Input
             stateForm={stateForm}
             type={field.type}
-            name={field.label}
+            name={field.name}
             key={field.name}
           />
     ))}
@@ -24,7 +24,7 @@ const SignIn = ({ stateForm }) => {
         && <Input
             stateForm={stateForm}
             type={field.type}
-            name={field.label}
+            name={field.name}
             key={field.name}
             valid={field.name === "confirmPassword" ? valid : undefined}
           />
