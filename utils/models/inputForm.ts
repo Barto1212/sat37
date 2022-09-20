@@ -1,12 +1,13 @@
-function checkEmail(input: string): boolean {
+function checkEmail(input: string) {
   if (!(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(input))) {
     return false
   }
   return true
 }
 
-const checkContent = (content: string): boolean => {
+const checkContent = (content: string) => {
   if (content == "") return false
+  return true
 }
 
 type inputFormArrayType = {
@@ -41,7 +42,7 @@ const checkAllForm = (form: typeof stateInput) => {
     if (!controlFunc(form[name])) {
       const nameField = inputFormArray[fieldNumber].label.toLowerCase()
       return {
-        message: `Le champ ${nameField} est faux`,
+        message: `la valeur du champ "${nameField}" n'est pas valide`,
         testOk: false
       }
 }
@@ -49,13 +50,13 @@ const checkAllForm = (form: typeof stateInput) => {
   return { testOk: true }
 }
 
-const getName = (label) => {
+const getName = (label: string) => {
   const index = inputFormArray.findIndex((field) => field.label === label)
   if (index === -1) throw new Error(`Le champ avec l'étiquette ${label} n'existe pas`)
   return stateInput[inputFormArray[index].name]
 }
 
-const getLabel = (name) => {
+const getLabel = (name: string) => {
   const index = inputFormArray.findIndex((field) => field.name === name)
   if (index === -1) throw new Error(`Le champ avec l'étiquette ${name} n'existe pas`)
   return inputFormArray[index].label

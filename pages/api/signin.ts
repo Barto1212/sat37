@@ -2,13 +2,11 @@ import mongoConnect from '../../utils/mongoConnect'
 import User from '../../utils/models/User.js'
 import bcrypt from "bcrypt"
 import { NextApiRequest, NextApiResponse } from 'next'
-import { inputFormArray } from '../../utils/models/inputForm'
 import { checkAllForm } from '../../utils/models/inputForm'
 
 const signIn = async (req: NextApiRequest, res: NextApiResponse) => {
   const checkResult = checkAllForm(req.body)
   if (!checkResult.testOk) {
-    console.log('dans la place')
     const { message } = checkResult
     res.status(403).json({ message })
     return
