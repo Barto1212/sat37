@@ -27,7 +27,7 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
 
   const send = (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    const xxxInFunc: any = logInMode ? logIn : signIn
+    const xxxInFunc = logInMode ? logIn : signIn
     xxxInFunc(stateForm[0])
     .then(() => displaySnack("Votre compte vient d'être crée"))
     .catch((message: string) => displaySnack(message, "error"))

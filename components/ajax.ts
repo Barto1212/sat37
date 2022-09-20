@@ -19,8 +19,9 @@ async function signIn (form: typeof stateInput) {
   return Promise.reject(`erreur: ${responseJSON.message}`)
 }
 
-const logIn = (form: typeof stateInput) => {
-  console.log('logIn', form)
+const logIn = async (form: typeof stateInput) => {
+  console.log(form)
+  return Promise.reject(`erreur: non codé`)
 }
 
 export { signIn, logIn }
