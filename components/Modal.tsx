@@ -1,27 +1,37 @@
 import Image from "next/image"
 import { MouseEventHandler, useState, useEffect } from 'react'
 import { LogIn, SignIn } from './ProfileManager'
+import { stateInput } from '../utils/models/inputForm'
+import { signIn, logIn } from './ajax'
+import { useSnackbar } from 'notistack'
 
 type Props = {
   open: boolean,
   onClose: MouseEventHandler<HTMLDivElement>
 }
-const inputForm = {
-  "Pseudonyme": "",
-  "Adresse email": "",
-  "Mot de passe": "",
-  "Confirmation": "",
-}
 
 const Modal:React.FC<Props> = ({ open, onClose }) => {
-  const stateForm = useState(inputForm)
-  const [LogInMode, setLogInMode] = useState<boolean>(true)
+  const stateForm = useState(stateInput)
+  const [logInMode, setLogInMode] = useState<boolean>(true)
+  const { enqueueSnackbar } = useSnackbar()
   
   // Clean form on open
   const setStateForm = stateForm[1]
   useEffect(() => {
-    setStateForm(inputForm)
+    setStateForm(stateInput)
   }, [setStateForm, open])
+
+  const displaySnack = (message: string, type?: "success"|"error"): void => {
+    enqueueSnackbar(message, { variant: type? type : "success" })
+  }
+
+  const send = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
+    const xxxInFunc = logInMode ? logIn : signIn
+    xxxInFunc(stateForm[0])
+    .then(() => displaySnack("Votre compte vient d'être crée"))
+    .catch((message: string) => displaySnack(message, "error"))
+  } 
 
   return (
     <div onClick={onClose} className={`overlay${open ? " overlay--visible" : " overlay--hidden"}`}>
@@ -41,15 +51,15 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
             x
           </span>
           <div className='container'>
-            {LogInMode ? <LogIn stateForm={stateForm} /> : <SignIn stateForm={stateForm}/>}
+            {logInMode ? <LogIn stateForm={stateForm} /> : <SignIn stateForm={stateForm}/>}
           </div>
           <div className='btnContainer'>
-            <button className='btn-primary'>
-              <span className='bold'>Connexion</span>
+            <button className='btn-primary' onClick={send} >
+              <span className='bold'>{logInMode ? "Connexion" : "Inscription"}</span>
             </button>
           </div>
           <div className="container modal__content__text">
-            {LogInMode ? 
+            {logInMode ? 
               <p>Pas encore de compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour en créer un. </p> :
               <p>Déjà un compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour vous identifier. </p>
             }

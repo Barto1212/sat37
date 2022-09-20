@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { useState, Dispatch, SetStateAction, BaseSyntheticEvent } from "react"
-import { checkEmail } from '../utils/checkForm'
+import { checkEmail, getLabel } from '../utils/models/inputForm'
 
 type TypeInput = "password" | "email" | "text"
 
@@ -58,7 +58,7 @@ const Input: React.FC<Props> = ({ stateForm, type, name, valid = true }) => {
         name={name}
         placeholder="&nbsp;"
       />
-      <span className="placeholder">{name}</span>
+      <span className="placeholder">{getLabel(name)}</span>
       {type === "password" && <Eye pwdVisible={pwdVisible} setPwdVisible={setPwdVisible}/>}
     </label>
   )
