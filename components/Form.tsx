@@ -1,17 +1,10 @@
 import Input from './Input'
 import { useState } from 'react'
-
-type P = {
-  name: string,
-  initialValue: string,
-  label: string,
-  type: "password" | "email" | "text",
-  validator: (arg: string) => boolean
-}[]
+import type { I } from '../utils/models/inputs'
 
 // const getState = () =>
 
-const Form = (prop: { inputs: P }) => {
+const Form = (prop: { inputs: I }) => {
   const { inputs } = prop
   const stateForm = useState({ email: "" })
   return (
