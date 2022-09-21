@@ -10,8 +10,8 @@ const getState = (inputs: I) => {
   return state
 }
 
-const Form = (prop: { inputs: I, sendForm }) => {
-  const { inputs } = prop
+const Form = (prop: { inputs: I, sendForm: (f) => void }) => {
+  const { inputs, sendForm } = prop
   const stateForm = useState(getState(inputs))
   const [form, setForm ]= stateForm
   // Clean form
