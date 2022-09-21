@@ -10,10 +10,17 @@ type I = {
 }[]
 
 const emailValidator = async (value: string) => {
-  return await string().email().validate(value)
+  const valid = await string()
+    .required("ce champ est requis")
+    .email("il faut une addresse email valide")
+    .validate(value) 
+  return valid
 }
 const stringValidator = async (value: string) => {
-  return await string().validate(value)
+  const valid = await string()
+    .required("ce champ est requis")
+    .validate(value)
+  return valid
 }
 const inputsLogIn: I = [
   { name: "email",            type:"textField",  initialValue: "", label: "Adresse e-mail",  contentType: "email",      validator: emailValidator },

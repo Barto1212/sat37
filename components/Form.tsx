@@ -1,6 +1,7 @@
 import Input from './Input'
 import { useState, useEffect } from 'react'
 import type { I } from '../utils/models/inputs'
+import { useSnackbar } from 'notistack'
 
 const getState = (inputs: I) => {
   const state = {}
@@ -11,32 +12,26 @@ const getState = (inputs: I) => {
 }
 
 const testAllInputs = async (inputs: I, form) => {
-  const result = {}
   for (const label in form) {
-    console.log(label)
     const { validator } = inputs.find((obj) => obj.name === label)
-    try {
-      result[label] = await validator(form[label])
-    } catch (error) {
-      return error
-    }
+    await validator(form[label])
   }
-  return result
 }
 
 const Form = (prop: { inputs: I, sendForm: (f) => void, submitName: string }) => {
   const { inputs, sendForm, submitName } = prop
   const stateForm = useState(getState(inputs))
   const [form, setForm ]= stateForm
+  const { enqueueSnackbar } = useSnackbar()
   // Clean form
   useEffect(() => {
     setForm(getState(inputs))
   }, [setForm, inputs])
-  const send = async (e) => {
+  const send = (e) => {
     e.preventDefault()
-    const res = await testAllInputs(inputs, form)
-    console.log(res) 
-    sendForm(form)
+    testAllInputs(inputs, form)
+      .then(() => sendForm(form))
+      .catch(e => enqueueSnackbar(e.errors[0], { variant: "error" }))
   }
   return (
     <form action="submit" onSubmit={send}>

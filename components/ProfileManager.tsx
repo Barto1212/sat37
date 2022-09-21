@@ -7,14 +7,11 @@ import { signIn, logIn } from './ajax'
 const ProfileManager = () => {
   const [logInMode, setLogInMode] = useState<boolean>(true)
   const { enqueueSnackbar } = useSnackbar()
-  const displaySnack = (message: string, type?: "success"|"error"): void => {
-    enqueueSnackbar(message, { variant: type? type : "success" })
-  }
   const sendForm = (prop) => {
     const handleSend = logInMode ? logIn : signIn
     handleSend(prop)
-      .then(() => displaySnack("Votre compte vient d'être crée"))
-      .catch((message: string) => displaySnack(message, "error"))
+      .then(() => enqueueSnackbar("Votre compte vient d'être crée", { variant: "success" }))
+      .catch((message: string) => enqueueSnackbar(message, { variant: "success" }))
   }
 
   return (
