@@ -1,4 +1,4 @@
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import Abstract from "../components/presentation/Abstract"
 import Razines_2022 from "../components/presentation/Razines_2022"
 import Rivaud_2022 from "../components/presentation/Rivaud_2020"

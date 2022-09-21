@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from '../components/layout/layout'
 import moment from 'moment'
 import { getSortedPostsData } from '../utils/posts';
 moment.locale('fr')

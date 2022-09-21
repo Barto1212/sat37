@@ -1,4 +1,4 @@
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import Revues from '../components/cotisation/Revues'
 import EcoEmballages from "../components/cotisation/EcoEmballages"
 import Assurance from '../components/cotisation/Assurance'

@@ -1,8 +1,8 @@
-import Form from './Form'
+import Form from './form/Form'
 import { useState } from 'react'
 import { inputsLogIn, inputsSignIn } from '../utils/models/inputs'
 import { useSnackbar } from 'notistack'
-import { signIn, logIn } from './ajax'
+import { signIn, logIn } from './form/ajax'
 
 const ProfileManager = () => {
   const [logInMode, setLogInMode] = useState<boolean>(true)

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { useState, Dispatch, SetStateAction, BaseSyntheticEvent } from "react"
-import { checkEmail } from '../utils/models/inputForm'
+import { checkEmail } from '../../utils/models/inputForm'
 
 type TypeInput = "password" | "email" | "text"
 

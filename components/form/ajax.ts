@@ -1,4 +1,4 @@
-import { stateInput } from "../utils/models/inputForm"
+import { stateInput } from "../../utils/models/inputForm"
 // const [protocol, adress, port] = document.location.origin.split(':')
 // const url = `${protocol}:${adress}`
 

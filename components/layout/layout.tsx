@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Header from './header.jsx'
+import Header from './navigation/header'
 import styles from './layout.module.scss'
-import Modal from './Modal'
+import Modal from '../Modal'
 import { useState } from 'react'
 
 export const siteTitle = "L'apiculture tourangelle"

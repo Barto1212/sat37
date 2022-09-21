@@ -1,6 +1,6 @@
 import Input from './Input'
 import { useState, useEffect } from 'react'
-import type { I } from '../utils/models/inputs'
+import type { I } from '../../utils/models/inputs'
 import { useSnackbar } from 'notistack'
 
 const getState = (inputs: I) => {
