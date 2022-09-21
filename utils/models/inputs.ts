@@ -7,7 +7,7 @@ type I = {
 }[]
 
 const inputsLogIn: I = [
-  { name: "email",            initialValue: "", label: "E mail",          contentType: "email",      validator: () => true },
+  { name: "email",            initialValue: "", label: "Adresse e-mail",  contentType: "email",      validator: () => true },
   { name: "password",         initialValue: "", label: "Mot de passe",    contentType: "password",   validator: () => true },
 ]
 

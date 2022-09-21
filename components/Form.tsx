@@ -1,12 +1,23 @@
 import Input from './Input'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import type { I } from '../utils/models/inputs'
 
-// const getState = () =>
+const getState = (inputs: I) => {
+  const state = {}
+  for (const input in inputs) {
+    state[inputs[input].name] = inputs[input].initialValue
+  }
+  return state
+}
 
-const Form = (prop: { inputs: I }) => {
+const Form = (prop: { inputs: I, send?: () => void }) => {
   const { inputs } = prop
-  const stateForm = useState({ email: "" })
+  const stateForm = useState(getState(inputs))
+  const setStateForm = stateForm[1]
+  // Clean form
+  useEffect(() => {
+    setStateForm(getState(inputs))
+  }, [setStateForm, inputs])
   return (
     <>
     {inputs.map((props) => {
@@ -15,6 +26,7 @@ const Form = (prop: { inputs: I }) => {
           stateForm={stateForm}
           type={props.contentType}
           name={props.name}
+          label={props.label}
           key={props.name}
         />
       )

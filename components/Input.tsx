@@ -1,12 +1,13 @@
 import Image from "next/image"
 import { useState, Dispatch, SetStateAction, BaseSyntheticEvent } from "react"
-import { checkEmail, getLabel } from '../utils/models/inputForm'
+import { checkEmail } from '../utils/models/inputForm'
 
 type TypeInput = "password" | "email" | "text"
 
 type Props = {
   stateForm: [object, Dispatch<SetStateAction<object>>]
   type: TypeInput,
+  label: string,
   name: string,
   valid?: boolean
 }
@@ -31,7 +32,7 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<b
   )
 }
 
-const Input: React.FC<Props> = ({ stateForm, type, name, valid = true }) => {
+const Input: React.FC<Props> = ({ stateForm, type, name, label, valid = true }) => {
   const [form, setForm] = stateForm
   const [pwdVisible, setPwdVisible] = useState<boolean>(false)
   const [success, setSuccess] = useState(true)
@@ -58,7 +59,7 @@ const Input: React.FC<Props> = ({ stateForm, type, name, valid = true }) => {
         name={name}
         placeholder="&nbsp;"
       />
-      <span className="placeholder">{getLabel(name)}</span>
+      <span className="placeholder">{label}</span>
       {type === "password" && <Eye pwdVisible={pwdVisible} setPwdVisible={setPwdVisible}/>}
     </label>
   )
