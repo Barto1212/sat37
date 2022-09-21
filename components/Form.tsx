@@ -10,30 +10,37 @@ const getState = (inputs: I) => {
   return state
 }
 
-const Form = (prop: { inputs: I, sendForm: (f) => void }) => {
-  const { inputs, sendForm } = prop
+const testAllInputs = async (inputs: I, form) => {
+  const result = {}
+  for (const label in form) {
+    console.log(label)
+    const { validator } = inputs.find((obj) => obj.name === label)
+    try {
+      result[label] = await validator(form[label])
+    } catch (error) {
+      return error
+    }
+  }
+  return result
+}
+
+const Form = (prop: { inputs: I, sendForm: (f) => void, submitName: string }) => {
+  const { inputs, sendForm, submitName } = prop
   const stateForm = useState(getState(inputs))
   const [form, setForm ]= stateForm
   // Clean form
   useEffect(() => {
     setForm(getState(inputs))
   }, [setForm, inputs])
-  const send = (e) => {
+  const send = async (e) => {
     e.preventDefault()
+    const res = await testAllInputs(inputs, form)
+    console.log(res) 
     sendForm(form)
   }
   return (
     <form action="submit" onSubmit={send}>
       {inputs.map((props) => {
-        if (props.type === "button") {
-          return (
-            <div key={props.name} className='btnContainer'>
-              <button className='btn-primary' type="submit" >
-                <span className='bold'>{props.label}</span>
-              </button>
-            </div>
-          )
-        }
         return (
           <Input
             stateForm={stateForm}
@@ -44,6 +51,11 @@ const Form = (prop: { inputs: I, sendForm: (f) => void }) => {
           />
         )
       })}
+    <div className='btnContainer'>
+      <button className='btn-primary' type="submit" >
+        <span className='bold'>{submitName}</span>
+      </button>
+    </div>
     </form>
   )
 }

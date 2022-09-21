@@ -1,25 +1,29 @@
+import { string } from 'yup'
+
 type I = {
   name: string,
   type: "textField" | "button",
   initialValue: string,
   label: string,
   contentType: "password" | "email" | "text",
-  validator: () => boolean
+  validator: (value: string) => Promise<string>
 }[]
-const inputsBase: I = [
-  { name: "email",            type:"textField",  initialValue: "", label: "Adresse e-mail",  contentType: "email",      validator: () => true },
-  { name: "password",         type:"textField",  initialValue: "", label: "Mot de passe",    contentType: "password",   validator: () => true },
-]
+
+const emailValidator = async (value: string) => {
+  return await string().email().validate(value)
+}
+const stringValidator = async (value: string) => {
+  return await string().validate(value)
+}
 const inputsLogIn: I = [
-  ...inputsBase,
-  { name: "button",           type:"button",      initialValue: "", label: "Connexion",       contentType: "password",   validator: () => true },
+  { name: "email",            type:"textField",  initialValue: "", label: "Adresse e-mail",  contentType: "email",      validator: emailValidator },
+  { name: "password",         type:"textField",  initialValue: "", label: "Mot de passe",    contentType: "password",   validator: stringValidator },
 ]
 
 const inputsSignIn: I = [
-  { name: "name",             type:"textField",  initialValue: "", label: "Pseudonyme",      contentType: "text",       validator: () => true },
-  ...inputsBase,
-  { name: "confirmPassword",  type:"textField",  initialValue: "", label: "Confirmation",    contentType: "password",   validator: () => true },
-  { name: "button",           type:"button",      initialValue: "", label: "Créer un compte",       contentType: "password",   validator: () => true },
+  { name: "name",             type:"textField",  initialValue: "", label: "Pseudonyme",      contentType: "text",       validator: stringValidator },
+  ...inputsLogIn,
+  { name: "confirmPassword",  type:"textField",  initialValue: "", label: "Confirmation",    contentType: "password",   validator: stringValidator },
 ]
 
 export { inputsLogIn, inputsSignIn }

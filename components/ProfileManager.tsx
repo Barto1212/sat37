@@ -11,7 +11,8 @@ const ProfileManager = () => {
     enqueueSnackbar(message, { variant: type? type : "success" })
   }
   const sendForm = (prop) => {
-    logInMode ? signIn(prop) : logIn(prop)
+    const handleSend = logInMode ? logIn : signIn
+    handleSend(prop)
       .then(() => displaySnack("Votre compte vient d'être crée"))
       .catch((message: string) => displaySnack(message, "error"))
   }
@@ -19,7 +20,11 @@ const ProfileManager = () => {
   return (
     <>
     <div className="stack-vertical">
-      <Form inputs={logInMode ? inputsLogIn : inputsSignIn} sendForm={sendForm} />
+      <Form
+        inputs={logInMode ? inputsLogIn : inputsSignIn}
+        sendForm={sendForm}
+        submitName={logInMode ? "Connexion" : "Créer un compte"}
+      />
     </div>
     <div className="container modal__content__text">
       {logInMode ? 
