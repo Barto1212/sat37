@@ -13,7 +13,7 @@ const Form = (prop: { inputs: I }) => {
       return (
         <Input
           stateForm={stateForm}
-          type={props.type}
+          type={props.contentType}
           name={props.name}
           key={props.name}
         />
