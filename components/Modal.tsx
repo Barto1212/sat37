@@ -1,9 +1,10 @@
 import Image from "next/image"
 import { MouseEventHandler, useState, useEffect } from 'react'
-import { LogIn, SignIn } from './ProfileManager'
+import ProfileManager from './ProfileManager'
 import { stateInput } from '../utils/models/inputForm'
 import { signIn, logIn } from './ajax'
 import { useSnackbar } from 'notistack'
+
 
 type Props = {
   open: boolean,
@@ -51,7 +52,7 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
             x
           </span>
           <div className='container'>
-            {logInMode ? <LogIn stateForm={stateForm} /> : <SignIn stateForm={stateForm}/>}
+            <ProfileManager logInMode={logInMode} />
           </div>
           <div className='btnContainer'>
             <button className='btn-primary' onClick={send} >
