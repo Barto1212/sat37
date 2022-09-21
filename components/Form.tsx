@@ -10,28 +10,41 @@ const getState = (inputs: I) => {
   return state
 }
 
-const Form = (prop: { inputs: I, send?: () => void }) => {
+const Form = (prop: { inputs: I, sendForm }) => {
   const { inputs } = prop
   const stateForm = useState(getState(inputs))
-  const setStateForm = stateForm[1]
+  const [form, setForm ]= stateForm
   // Clean form
   useEffect(() => {
-    setStateForm(getState(inputs))
-  }, [setStateForm, inputs])
+    setForm(getState(inputs))
+  }, [setForm, inputs])
+  const send = (e) => {
+    e.preventDefault()
+    sendForm(form)
+  }
   return (
-    <>
-    {inputs.map((props) => {
-      return (
-        <Input
-          stateForm={stateForm}
-          type={props.contentType}
-          name={props.name}
-          label={props.label}
-          key={props.name}
-        />
-      )
-    })}
-    </>
+    <form action="submit" onSubmit={send}>
+      {inputs.map((props) => {
+        if (props.type === "button") {
+          return (
+            <div key={props.name} className='btnContainer'>
+              <button className='btn-primary' type="submit" >
+                <span className='bold'>{props.label}</span>
+              </button>
+            </div>
+          )
+        }
+        return (
+          <Input
+            stateForm={stateForm}
+            type={props.contentType}
+            name={props.name}
+            label={props.label}
+            key={props.name}
+          />
+        )
+      })}
+    </form>
   )
 }
 

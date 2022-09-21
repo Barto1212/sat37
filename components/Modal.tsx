@@ -1,7 +1,6 @@
 import Image from "next/image"
 import { MouseEventHandler, useState } from 'react'
 import ProfileManager from './ProfileManager'
-// import { signIn, logIn } from './ajax'
 import { useSnackbar } from 'notistack'
 
 
@@ -11,7 +10,6 @@ type Props = {
 }
 
 const Modal:React.FC<Props> = ({ open, onClose }) => {
-  const [logInMode, setLogInMode] = useState<boolean>(true)
   const { enqueueSnackbar } = useSnackbar()
   
   const displaySnack = (message: string, type?: "success"|"error"): void => {
@@ -43,20 +41,8 @@ const Modal:React.FC<Props> = ({ open, onClose }) => {
             x
           </span>
           <div className='container'>
-            <ProfileManager logInMode={logInMode} />
+            <ProfileManager />
           </div>
-          <div className='btnContainer'>
-            <button className='btn-primary' onClick={send} >
-              <span className='bold'>{logInMode ? "Connexion" : "Inscription"}</span>
-            </button>
-          </div>
-          <div className="container modal__content__text">
-            {logInMode ? 
-              <p>Pas encore de compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour en créer un. </p> :
-              <p>Déjà un compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour vous identifier. </p>
-            }
-          </div>
-          
         </div>
       </div>
     </div>
