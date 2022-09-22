@@ -34,10 +34,10 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<b
 
 const Input: FC<Props> = ({ value, handleChange, type, name, label, valid = true }) => {
   const [pwdVisible, setPwdVisible] = useState<boolean>(false)
-
+  // Pour éviter les erreurs :
+  if (value === undefined) return null
   const newType = type === "password" ?
   (pwdVisible ? "text" : "password") : type
-
   return (
     <label className={`custom-field custom-field--${(valid) ? "success" : "error"}`}>
       <input

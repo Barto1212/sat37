@@ -17,19 +17,23 @@ type FormProps = {
   submitLabel: string
 }
 
-
 const Form: FC<FormProps> = ({ inputs, sendForm, submitLabel }) => {
-  const [form, setForm ] = useState(getState(inputs))
-  const [valid, setSuccess] = useState({})
+  const [valid, setValid] = useState({})
   const { enqueueSnackbar } = useSnackbar()
-
+  const [form, setForm] = useState(getState(inputs))
+  console.log(form)
+  // Clean form
+  useEffect(() => {
+    setForm(getState(inputs))
+  }, [setForm, inputs])
+  
   // On change form
   const handleChange = (e: React.BaseSyntheticEvent) => {
     const { value, id } = e.target
     setForm((old) => ({ ...old, [id]: value }))
     testInput(id, value, inputs)
-      .then(() => setSuccess(s => ({ ...s ,[id]: true })))
-      .catch(() => setSuccess(s => ({ ...s ,[id]: false })))
+      .then(() => setValid(s => ({ ...s ,[id]: true })))
+      .catch(() => setValid(s => ({ ...s ,[id]: false })))
   }
 
   // Sending function
@@ -38,15 +42,11 @@ const Form: FC<FormProps> = ({ inputs, sendForm, submitLabel }) => {
     testAllInputs(inputs, form)
       .then(() => sendForm(form))
       .then(() => enqueueSnackbar("Votre compte vient d'être crée", { variant: "success" }))
-      .catch(e => enqueueSnackbar(e.errors ? e.errors[0] : e, { variant: "error" }))
+      .catch(e => {
+        // debug here e
+        enqueueSnackbar(e.errors ? e.errors[0] : e, { variant: "error" })
+      })
     }
-
-  // Clean form
-  useEffect(() => {
-    setForm(getState(inputs))
-  }, [setForm, inputs])
-
-
 
   return (
     <form action="submit" onSubmit={send}>
