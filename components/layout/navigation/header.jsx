@@ -28,7 +28,7 @@ const Item = ({ item, menuToggleHandler }) => {
   if (typeof item.link === "object") {
     return (
       <li className={router.asPath === item.link ? styles.activePage : styles.item}>
-        <a className={styles.item__link} onClick={menuToggleHandler}>{item.name}</a>
+        <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
         <ul className={styles.subList}>
           {item.link.map(item => {
             return (
@@ -48,7 +48,7 @@ const Item = ({ item, menuToggleHandler }) => {
   return (
     <li className={router.asPath === item.link ? styles.activePage : styles.item}>
       <Link href={item.link}>
-        <a className={styles.item__link} onClick={menuToggleHandler}>{item.name}</a>
+        <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
       </Link>
     </li>
   )
