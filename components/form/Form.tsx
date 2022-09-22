@@ -21,7 +21,6 @@ const Form: FC<FormProps> = ({ inputs, sendForm, submitLabel }) => {
   const [valid, setValid] = useState({})
   const { enqueueSnackbar } = useSnackbar()
   const [form, setForm] = useState(getState(inputs))
-  console.log(form)
   // Clean form
   useEffect(() => {
     setForm(getState(inputs))
