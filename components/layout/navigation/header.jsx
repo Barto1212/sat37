@@ -11,6 +11,11 @@ const itemsList = [
   { name: "Actualités", link: "/" },
   { name: "Présentation", link: "/presentation" },
   { name: "Adhésion", link: "/adhesion" },
+  // { name: "Info", link: [
+  //   { name: "Fiscalité", link: "info/fiscalite" },
+  //   { name: "Mielerie", link: "info/mielerie" }
+  // ]
+  // },
   // {name: "Fiscalité", link: "/fiscalite"},
   // {name: "Rucher école", link: "/rucherecole"},
   // {name: "Mielerie", link: "/mielerie"},
