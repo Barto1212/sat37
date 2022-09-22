@@ -1,7 +1,8 @@
 import Input from './Input'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FC } from 'react'
 import type { I } from '../../utils/models/inputs'
 import { useSnackbar } from 'notistack'
+
 
 const getState = (inputs: I) => {
   const state = {}
@@ -11,18 +12,26 @@ const getState = (inputs: I) => {
   return state
 }
 
-const testAllInputs = async (inputs: I, form) => {
+
+type FormProps = {
+  inputs: I,
+  sendForm: (f: object) => void,
+  submitLabel: string
+}
+const testAllInputs = async (inputs: I, form: object) => {
   for (const label in form) {
     const { validator } = inputs.find((obj) => obj.name === label)
     await validator(form[label])
   }
 }
 
-const Form = (prop: { inputs: I, sendForm: (f) => void, submitName: string }) => {
-  const { inputs, sendForm, submitName } = prop
+
+
+const Form: FC<FormProps> = ({ inputs, sendForm, submitLabel }) => {
   const stateForm = useState(getState(inputs))
   const [form, setForm ]= stateForm
   const { enqueueSnackbar } = useSnackbar()
+
   // Clean form
   useEffect(() => {
     setForm(getState(inputs))
@@ -48,7 +57,7 @@ const Form = (prop: { inputs: I, sendForm: (f) => void, submitName: string }) =>
       })}
     <div className='btnContainer'>
       <button className='btn-primary' type="submit" >
-        <span className='bold'>{submitName}</span>
+        <span className='bold'>{submitLabel}</span>
       </button>
     </div>
     </form>

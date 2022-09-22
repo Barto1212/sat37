@@ -20,7 +20,7 @@ const ProfileManager = () => {
       <Form
         inputs={logInMode ? inputsLogIn : inputsSignIn}
         sendForm={sendForm}
-        submitName={logInMode ? "Connexion" : "Créer un compte"}
+        submitLabel={logInMode ? "Connexion" : "Créer un compte"}
       />
     </div>
     <div className="container modal__content__text">
