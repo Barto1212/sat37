@@ -11,7 +11,7 @@ const ProfileManager = () => {
     const handleSend = logInMode ? logIn : signIn
     handleSend(prop)
       .then(() => enqueueSnackbar("Votre compte vient d'être crée", { variant: "success" }))
-      .catch((message: string) => enqueueSnackbar(message, { variant: "success" }))
+      .catch((message: string) => enqueueSnackbar(message, { variant: "error" }))
   }
 
   return (

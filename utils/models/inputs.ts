@@ -33,6 +33,16 @@ const inputsSignIn: I = [
   { name: "confirmPassword",  type:"textField",  initialValue: "", label: "Confirmation",    contentType: "password",   validator: stringValidator },
 ]
 
-export { inputsLogIn, inputsSignIn }
+const testInput = async (label: string, value: string, inputs: I) => {
+  const { validator } = inputs.find((obj) => obj.name === label)
+  await validator(value)
+}
+const testAllInputs = async (inputs: I, form: object) => {
+  for (const label in form) {
+    await testInput(label, form[label], inputs)
+  }
+}
+
+export { inputsLogIn, inputsSignIn, testInput, testAllInputs }
 
 export type { I }

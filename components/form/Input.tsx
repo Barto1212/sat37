@@ -1,5 +1,5 @@
 import Image from "next/image"
-import React, { useState, Dispatch, SetStateAction } from "react"
+import { useState, Dispatch, SetStateAction, FC } from "react"
 
 type TypeInput = "password" | "email" | "text"
 
@@ -32,7 +32,7 @@ const Eye: (prop: {pwdVisible: boolean, setPwdVisible: Dispatch<SetStateAction<b
   )
 }
 
-const Input: React.FC<Props> = ({ value, handleChange, type, name, label, valid = true }) => {
+const Input: FC<Props> = ({ value, handleChange, type, name, label, valid = true }) => {
   const [pwdVisible, setPwdVisible] = useState<boolean>(false)
 
   const newType = type === "password" ?
