@@ -2,15 +2,14 @@ import mongoConnect from '../../utils/mongoConnect'
 import User from '../../utils/models/User.js'
 import bcrypt from "bcrypt"
 import { NextApiRequest, NextApiResponse } from 'next'
-import { checkAllForm } from '../../utils/models/inputForm'
 
 const signIn = async (req: NextApiRequest, res: NextApiResponse) => {
-  const checkResult = checkAllForm(req.body)
-  if (!checkResult.testOk) {
-    const { message } = checkResult
-    res.status(403).json({ message })
-    return
-  }
+  // const checkResult = checkAllForm(req.body)
+  // if (!checkResult.testOk) {
+  //   const { message } = checkResult
+  //   res.status(403).json({ message })
+  //   return
+  // }
   const { name, email, password, confirmPassword } = req.body
   if (password !== confirmPassword) {
     res.status(403).json({ message: "mots de passes non identiques" })

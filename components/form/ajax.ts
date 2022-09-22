@@ -1,8 +1,7 @@
-import { stateInput } from "../../utils/models/inputForm"
 // const [protocol, adress, port] = document.location.origin.split(':')
 // const url = `${protocol}:${adress}`
 
-async function signIn (form: typeof stateInput) {
+async function signIn (form: object) {
   const response = await fetch(
     "http://localhost:3000/api/signin",
     {
@@ -19,7 +18,7 @@ async function signIn (form: typeof stateInput) {
   return Promise.reject(`erreur: ${responseJSON.message}`)
 }
 
-const logIn = async (form: typeof stateInput) => {
+const logIn = async (form: object) => {
   console.log(form)
   return Promise.reject(`erreur: non codé`)
 }

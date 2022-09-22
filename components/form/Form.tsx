@@ -1,15 +1,7 @@
 import Input from './Input'
 import React, { useState, useEffect, FC } from 'react'
-import { I, testInput, testAllInputs } from '../../utils/models/inputs'
+import { I, testInput, testAllInputs, getState } from '../../utils/models/inputs'
 import { useSnackbar } from 'notistack'
-
-const getState = (inputs: I) => {
-  const state = {}
-  for (const input in inputs) {
-    state[inputs[input].name] = inputs[input].initialValue
-  }
-  return state
-}
 
 type FormProps = {
   inputs: I,
