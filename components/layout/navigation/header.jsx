@@ -24,9 +24,9 @@ const itemsList = [
 const Item = ({ item, menuToggleHandler }) => {
   const router = useRouter()
   return (
-    <li className={router.asPath === item.link ? styles.activePage : ""}>
+    <li className={router.asPath === item.link ? styles.activePage : styles.item}>
       <Link href={item.link}>
-        <a onClick={menuToggleHandler}>{item.name}</a>
+        <a className={styles.item__link} onClick={menuToggleHandler}>{item.name}</a>
       </Link>
     </li>
   )
@@ -84,7 +84,7 @@ const Header = ({ setModalIsOpen }) => {
           openMenu && size.width < 1050 ? styles.isMenu : ""
         }`}
         >
-          <ul>
+          <ul className={styles.list}>
             {itemsList.map(item => (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} />))}
           </ul>
           <button className='btn-svg' onClick={handleUserClick}>

@@ -55,7 +55,7 @@
                 position: static;
             }
 
-            ul {
+            .list {
                 list-style: none;
                 padding: 0;
                 display: flex;
@@ -93,7 +93,7 @@
                         display: none;
                     }
                 }
-                li {
+                .item {
                     &:not(:last-child) {
                         margin-bottom: $spacing-lg;
                         @include breakpoint(md) {
@@ -101,7 +101,7 @@
                             margin-right: $spacing-md;
                         }
                     }
-                    a {
+                    &__link {
                         text-decoration: none;
                         color: inherit;
                         padding: 0.75rem 1.25rem;
