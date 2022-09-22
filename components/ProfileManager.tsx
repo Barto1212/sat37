@@ -12,14 +12,12 @@ const ProfileManager = () => {
 
   return (
     <>
-    <div className="stack-vertical">
       <Form
         inputs={logInMode ? inputsLogIn : inputsSignIn}
         sendForm={sendForm}
         submitLabel={logInMode ? "Connexion" : "Créer un compte"}
       />
-    </div>
-    <div className="container modal__content__text">
+    <div className="container modal__content__text--down">
       {logInMode ? 
         <p>Pas encore de compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour en créer un. </p> :
         <p>Déjà un compte ? <a href="#" onClick={() => setLogInMode(o => !o)}>Cliquez ici</a> pour vous identifier. </p>

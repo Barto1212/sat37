@@ -40,7 +40,7 @@ const Form: FC<FormProps> = ({ inputs, sendForm, submitLabel }) => {
     }
 
   return (
-    <form action="submit" onSubmit={send}>
+    <form action="submit" onSubmit={send} className="stack-vertical">
       {inputs.map((props) => {
         return (
           <Input

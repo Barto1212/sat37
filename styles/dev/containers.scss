@@ -4,6 +4,7 @@
   padding: 2rem;
 }
 @mixin stack($flexDirection) {
+  height: 80%;
   display: flex;
   justify-content: center;
   text-align: center;

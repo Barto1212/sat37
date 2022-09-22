@@ -17,16 +17,14 @@ const Modal:React.FC<Props> = ({ open, onClose }) => (
       <Image
           src="/img/abeille-chardon-3850-3450.jpg"
           alt='Abeille sur un chardon'
-          width={3850*0.15}
-          height={3450*0.15}
+          width={3850*0.18}
+          height={3450*0.18}
         />
       <div className='modal__content'>
         <span className='close-btn close-btn--dark' onClick={onClose}>
           x
         </span>
-        <div className='container'>
           <ProfileManager />
-        </div>
       </div>
     </div>
   </div>
