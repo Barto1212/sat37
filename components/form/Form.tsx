@@ -1,5 +1,5 @@
 import Input from './Input'
-import { useState, useEffect, FC } from 'react'
+import React, { useState, useEffect, FC } from 'react'
 import type { I } from '../../utils/models/inputs'
 import { useSnackbar } from 'notistack'
 
@@ -18,19 +18,29 @@ type FormProps = {
   sendForm: (f: object) => void,
   submitLabel: string
 }
+const testInput = async (label: string, value: string, inputs: I) => {
+  const { validator } = inputs.find((obj) => obj.name === label)
+  await validator(value)
+}
 const testAllInputs = async (inputs: I, form: object) => {
   for (const label in form) {
-    const { validator } = inputs.find((obj) => obj.name === label)
-    await validator(form[label])
+    await testInput(label, form[label], inputs)
   }
 }
 
-
-
 const Form: FC<FormProps> = ({ inputs, sendForm, submitLabel }) => {
-  const stateForm = useState(getState(inputs))
-  const [form, setForm ]= stateForm
+  const [form, setForm ] = useState(getState(inputs))
+  const [valid, setSuccess] = useState({})
   const { enqueueSnackbar } = useSnackbar()
+
+  const handleChange = (e: React.BaseSyntheticEvent) => {
+    const { value, id } = e.target
+    setForm((old) => ({ ...old, [id]: value }))
+    testInput(id, value, inputs)
+      .then(() => setSuccess(s => ({ ...s ,[id]: true })))
+      .catch(() => setSuccess(s => ({ ...s ,[id]: false })))
+  }
+
 
   // Clean form
   useEffect(() => {
@@ -47,7 +57,9 @@ const Form: FC<FormProps> = ({ inputs, sendForm, submitLabel }) => {
       {inputs.map((props) => {
         return (
           <Input
-            stateForm={stateForm}
+            handleChange={handleChange}
+            value={form[props.name]}
+            valid={valid[props.name]}
             type={props.contentType}
             name={props.name}
             label={props.label}
