@@ -9,13 +9,15 @@ import { useState, useEffect } from 'react';
 
 const itemsList = [
   { name: "Actualités", link: "/" },
+  { name: "Info", link: [
+    { name: "Fiscalité", link: "info/fiscalite" },
+    { name: "Mielerie", link: "info/mielerie" },
+    { name: "Mielerie", link: "info/mielerie" },
+    { name: "Mielerie", link: "info/mielerie" }
+  ]
+  },
   { name: "Présentation", link: "/presentation" },
   { name: "Adhésion", link: "/adhesion" },
-  // { name: "Info", link: [
-  //   { name: "Fiscalité", link: "info/fiscalite" },
-  //   { name: "Mielerie", link: "info/mielerie" }
-  // ]
-  // },
   // {name: "Fiscalité", link: "/fiscalite"},
   // {name: "Rucher école", link: "/rucherecole"},
   // {name: "Mielerie", link: "/mielerie"},
@@ -23,6 +25,26 @@ const itemsList = [
 
 const Item = ({ item, menuToggleHandler }) => {
   const router = useRouter()
+  if (typeof item.link === "object") {
+    return (
+      <li className={router.asPath === item.link ? styles.activePage : styles.item}>
+        <a className={styles.item__link} onClick={menuToggleHandler}>{item.name}</a>
+        <ul className={styles.subList}>
+          {item.link.map(item => {
+            return (
+              <li key={item.name}>
+                <Link href={item.link}>
+                  <a onClick={menuToggleHandler}>{item.name}</a>
+                </Link>
+              </li>
+            )
+            }
+          )}
+        </ul>
+        <div></div>
+      </li>
+    )
+  }
   return (
     <li className={router.asPath === item.link ? styles.activePage : styles.item}>
       <Link href={item.link}>

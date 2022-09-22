@@ -11,7 +11,7 @@
     transition: 0.3s ease all;
 
     &__content {
-        overflow: hidden;
+        // overflow: hidden;
         color: $light;
         margin: 0 auto;
         max-width: 1920px;
@@ -116,6 +116,23 @@
                         &:active {
                             border-radius: calc(#{$borderRadius} + 6px);
                             background: linear-gradient(rgba($light, 0.1), rgba($light, 0.2));
+                        }
+                    }
+                    .subList {
+                        position: absolute;
+                        overflow: visible;
+                        width: 100%;
+                        top: 120px;
+                        left: 40px;
+                        background-color: black;
+                        z-index: 1000;
+                        color: blue;
+                        border: 1px solid black;
+                        li {
+                            background-color: black;
+                        display: block;
+                        color: blue;
+                            width: 100%;
                         }
                     }
                 }
