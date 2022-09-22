@@ -37,8 +37,9 @@ const Form: FC<FormProps> = ({ inputs, sendForm, submitLabel }) => {
     e.preventDefault()
     testAllInputs(inputs, form)
       .then(() => sendForm(form))
-      .catch(e => enqueueSnackbar(e.errors[0], { variant: "error" }))
-  }
+      .then(() => enqueueSnackbar("Votre compte vient d'être crée", { variant: "success" }))
+      .catch(e => enqueueSnackbar(e.errors ? e.errors[0] : e, { variant: "error" }))
+    }
 
   // Clean form
   useEffect(() => {

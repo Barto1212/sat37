@@ -1,17 +1,13 @@
 import Form from './form/Form'
 import { useState } from 'react'
 import { inputsLogIn, inputsSignIn } from '../utils/models/inputs'
-import { useSnackbar } from 'notistack'
 import { signIn, logIn } from './form/ajax'
 
 const ProfileManager = () => {
   const [logInMode, setLogInMode] = useState<boolean>(true)
-  const { enqueueSnackbar } = useSnackbar()
-  const sendForm = (prop) => {
+  const sendForm = async (prop) => {
     const handleSend = logInMode ? logIn : signIn
-    handleSend(prop)
-      .then(() => enqueueSnackbar("Votre compte vient d'être crée", { variant: "success" }))
-      .catch((message: string) => enqueueSnackbar(message, { variant: "error" }))
+    return handleSend(prop)
   }
 
   return (
