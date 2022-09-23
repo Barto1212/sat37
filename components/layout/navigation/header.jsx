@@ -22,22 +22,8 @@ const itemsList = [
 ]
 
 const Item = ({ item, menuToggleHandler, subListVisible }) => {
-  const router = useRouter()
-  const isSubMenu = typeof item.link === "object"
-  const liClassName = router.asPath === item.link ? styles.activePage : styles.item
-  if (typeof item.link === "object") {
-    return (
-      <li className={liClassName}>
-        <a className={styles.link} id={item} onClick={menuToggleHandler}>{item.name}</a>
-        <ul className={subListVisible? styles.subList_hidden : styles.subList}>
-          {item.link.map(item => {
-            return (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} subListVisible={true} />)
-            }
-          )}
-        </ul>
-      </li>
-    )
-  }
+ 
+  
   return (
     <li className={liClassName}>
       <Link href={item.link}>
@@ -49,6 +35,8 @@ const Item = ({ item, menuToggleHandler, subListVisible }) => {
 
 const Header = ({ setModalIsOpen }) => {
   const [openMenu, setOpenMenu] = useState(false)
+  const router = useRouter()
+
   const [size, setSize] = useState({
     width: undefined,
     height: undefined
@@ -102,7 +90,37 @@ const Header = ({ setModalIsOpen }) => {
         }`}
         >
           <ul className={styles.list}>
-            {itemsList.map(item => (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} />))}
+            {itemsList.map(item => {
+              const subListVisible = true
+              const isSubMenu = typeof item.link === "object"
+              const liClassName = router.asPath === item.link ? styles.activePage : styles.item
+              if (isSubMenu) {
+                return (
+                  <li key={item.name} className={liClassName}>
+                    <a className={styles.link} id={item} onClick={menuToggleHandler}>{item.name}</a>
+                    <ul className={subListVisible? styles.subList : styles.subList_hidden}>
+                      {item.link.map(item => {
+                        return (
+                          <li key={item.name} className={liClassName}>
+                            <Link href={item.link}>
+                              <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
+                            </Link>
+                          </li>
+                        )
+                        }
+                      )}
+                    </ul>
+                  </li>
+                )
+              }
+              return (
+                <li key={item.name} className={liClassName}>
+                  <Link href={item.link}>
+                    <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
           <button className='btn-svg' onClick={handleUserClick}>
             <Image alt="user" src="/img/svg/user-regular.svg" width={25} height={25} />  
