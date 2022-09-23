@@ -1,3 +1,4 @@
+import Test from './test'
 import styles from './header.module.scss'
 import Link from 'next/link';
 import Image from 'next/image';
@@ -20,18 +21,6 @@ const itemsList = [
   // {name: "Fiscalité", link: "/fiscalite"},
   // {name: "Mielerie", link: "/mielerie"},
 ]
-
-const Item = ({ item, menuToggleHandler, subListVisible }) => {
- 
-  
-  return (
-    <li className={liClassName}>
-      <Link href={item.link}>
-        <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
-      </Link>
-    </li>
-  )
-}
 
 const Header = ({ setModalIsOpen }) => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -89,7 +78,7 @@ const Header = ({ setModalIsOpen }) => {
           openMenu && size.width < 1050 ? styles.isMenu : ""
         }`}
         >
-          <ul className={styles.list}>
+          {/* <ul className={styles.list}>
             {itemsList.map(item => {
               const subListVisible = true
               const isSubMenu = typeof item.link === "object"
@@ -121,7 +110,8 @@ const Header = ({ setModalIsOpen }) => {
                 </li>
               )
             })}
-          </ul>
+          </ul> */}
+          <Test array={itemsList} />
           <button className='btn-svg' onClick={handleUserClick}>
             <Image alt="user" src="/img/svg/user-regular.svg" width={25} height={25} />  
           </button>
