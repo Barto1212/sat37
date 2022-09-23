@@ -11,8 +11,6 @@ const itemsList = [
   { name: "Actualités", link: "/" },
   { name: "Info", link: [
     { name: "Fiscalité", link: "info/fiscalite" },
-    { name: "Mielerie", link: "info/mielerie" },
-    { name: "Mielerie", link: "info/mielerie" },
     { name: "Mielerie", link: "info/mielerie" }
   ]
   },
@@ -23,13 +21,13 @@ const itemsList = [
   // {name: "Mielerie", link: "/mielerie"},
 ]
 
-const Item = ({ item, menuToggleHandler }) => {
+const Item = ({ item, menuToggleHandler, subListVisible }) => {
   const router = useRouter()
   if (typeof item.link === "object") {
     return (
       <li className={router.asPath === item.link ? styles.activePage : styles.item}>
-        <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
-        <ul className={styles.subList}>
+        <a className={styles.link} id={item} onClick={menuToggleHandler}>{item.name}</a>
+        <ul className={subListVisible? styles.subList_hidden : styles.subList}>
           {item.link.map(item => {
             return (
               <li key={item.name}>
@@ -89,7 +87,10 @@ const Header = ({ setModalIsOpen }) => {
       setOpenMenu(false)
     }
   }, [size.width, openMenu])
-  const menuToggleHandler = () => (setOpenMenu(o => !o))
+  const menuToggleHandler = (e) => {
+    console.dir(e.target.id.name);
+    setOpenMenu(o => !o)
+  }
 
   return (
     <header className={styles.header}>
