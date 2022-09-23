@@ -11,40 +11,35 @@ const itemsList = [
   { name: "Actualités", link: "/" },
   { name: "Info", link: [
     { name: "Fiscalité", link: "info/fiscalite" },
-    { name: "Mielerie", link: "info/mielerie" }
+    { name: "Mielerie", link: "info/mielerie" },
+    { name: "Rucher école", link: "info/rucherecole" },
   ]
   },
   { name: "Présentation", link: "/presentation" },
   { name: "Adhésion", link: "/adhesion" },
   // {name: "Fiscalité", link: "/fiscalite"},
-  // {name: "Rucher école", link: "/rucherecole"},
   // {name: "Mielerie", link: "/mielerie"},
 ]
 
 const Item = ({ item, menuToggleHandler, subListVisible }) => {
   const router = useRouter()
+  const isSubMenu = typeof item.link === "object"
+  const liClassName = router.asPath === item.link ? styles.activePage : styles.item
   if (typeof item.link === "object") {
     return (
-      <li className={router.asPath === item.link ? styles.activePage : styles.item}>
+      <li className={liClassName}>
         <a className={styles.link} id={item} onClick={menuToggleHandler}>{item.name}</a>
         <ul className={subListVisible? styles.subList_hidden : styles.subList}>
           {item.link.map(item => {
-            return (
-              <li key={item.name}>
-                <Link href={item.link}>
-                  <a onClick={menuToggleHandler}>{item.name}</a>
-                </Link>
-              </li>
-            )
+            return (<Item key={item.name} item={item} menuToggleHandler={menuToggleHandler} subListVisible={true} />)
             }
           )}
         </ul>
-        <div></div>
       </li>
     )
   }
   return (
-    <li className={router.asPath === item.link ? styles.activePage : styles.item}>
+    <li className={liClassName}>
       <Link href={item.link}>
         <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
       </Link>
@@ -96,7 +91,6 @@ const Header = ({ setModalIsOpen }) => {
     <header className={styles.header}>
       <div className={styles.header__content}>
         <Image
-          className={styles.header__content__logo}
           src="/img/bee.svg"
           width={150}
           height={150}
