@@ -53,7 +53,7 @@
                     margin-bottom: 0;
                     margin-right: calc(0.5rem + #{$spacing-md});
                 }
-                .link {
+                a {
                     cursor: pointer;
                     text-decoration: none;
                     color: inherit;
@@ -89,12 +89,12 @@
                         display: none;
                     }
                 }
-                .item {
+                li {
                     position: relative;
-                    .subList {
-                        &_hidden {
-                            display: none;
-                        }
+                    .hidden {
+                        display: none;
+                    }
+                    ul {
                         position: absolute;
                         flex-direction: column;
                         width: 150px;
@@ -102,7 +102,7 @@
                         left: calc(100% - 100px);
                         border-radius: 8px;
                         box-shadow: 0 6px 24px 0 rgb(0, 0, 0, 0.6);
-                        .item {
+                        li {
                             width: 100%;
                             height: 100%;
                             padding: 10px;

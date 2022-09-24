@@ -1,8 +1,12 @@
 import Link from "next/link"
+import { useState } from "react"
+import { useRouter } from "next/router"
+import styles from "./header.module.scss"
 
 const ItemSimple = ({ item }) => {
+  const router = useRouter()
   return (
-    <li>
+    <li className={router.asPath === item.link ? styles.activePage : ""}>
       <Link href={item.link}>
         <a>{item.name}</a>
       </Link>
@@ -11,10 +15,11 @@ const ItemSimple = ({ item }) => {
 }
 
 const ItemAOuvrir = ({ children, item }) => {
+  const [open, setOpen] = useState(false)
   return (
-    <li>
-      <a>{item.name}</a>
-      <ul>
+    <li className={open ? styles.activePage : ""}>
+      <a onClick={() => setOpen(o => !o)}>{item.name}</a>
+      <ul className={open ? "" : styles.hidden}>
         {children}
       </ul>
     </li>

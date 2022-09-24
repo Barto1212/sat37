@@ -12,8 +12,8 @@ const itemsList = [
   { name: "Actualités", link: "/" },
   { name: "Info", link: [
     { name: "Fiscalité", link: "info/fiscalite" },
-    { name: "Mielerie", link: "info/mielerie" },
     { name: "Rucher école", link: "info/rucherecole" },
+    { name: "Mielerie", link: "info/mielerie" },
   ]
   },
   { name: "Présentation", link: "/presentation" },
