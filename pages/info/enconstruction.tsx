@@ -9,6 +9,7 @@ export default function Adhesion () {
 					alt="contruction rayon de cire"
 					width={768}
 					height={512}
+					layout="responsive"
 				/>
 		</Layout>
 	)
