@@ -15,18 +15,14 @@ const ItemSimple = ({ item }) => {
   )
 }
 
-const ItemAOuvrir = ({ children, item, path, setPath }) => {
+const ItemAOuvrir = ({ children, item, statesubListOpen }) => {
+  const [subListOpen, setsubListOpen] = statesubListOpen
   const menuName = item.link[0].link.split("/")[1]
   const { pathname } = useRouter()
-  const open = menuName === path.openMenu
+  const open = menuName === subListOpen
   const isActive = pathname.includes(menuName)
   const handleClick = () => {
-    setPath(old => {
-      if (open) {
-        return { ...old, openMenu: "" }
-      }
-    return  { ...old, openMenu: menuName }
-    })
+    setsubListOpen(open ? "" : menuName)
   }
   return (
     <li className={isActive ? styles.activePage : ""}>
@@ -39,15 +35,13 @@ const ItemAOuvrir = ({ children, item, path, setPath }) => {
 }
 
 const List = () => {
-  const [path, setPath] = useState({
-    openMenu: ""
-  })
+  const statesubListOpen = useState("")
   return (
     <ul>
       {structure.map(item => {
         if (typeof item.link === "object") {
           return (
-            <ItemAOuvrir path={path} setPath={setPath} key={item.name} item={item}>
+            <ItemAOuvrir statesubListOpen={statesubListOpen} key={item.name} item={item}>
               {item.link.map((item) => <ItemSimple key={item.name} item={item} />)}
             </ItemAOuvrir>
           )
