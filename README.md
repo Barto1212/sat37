@@ -36,3 +36,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Suite des évolutions
 
 fermeture des sous menus quand clic sur la page
+
+## Liste photos nécessaires
+
+Annick Corbeels

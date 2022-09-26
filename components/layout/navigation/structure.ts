@@ -7,12 +7,11 @@ export const structure = [
     { name: "Nos sorties", link: "/presentation/nossorties" },
   ] },
   { name: "Santé des ruches", link: [
-      { name: "Travaux au rucher", link: "/info/fiscalite" },
-      { name: "Marquage des reines", link: "/info/enconstruction" },
-      { name: "Suivi sanitaire", link: "/info/enconstruction" },
-      { name: "Plantes melifères", link: "/info/enconstruction" },
-      { name: "GDS", link: "/info/enconstruction" },
-      { name: "Réglementation", link: "/info/enconstruction" },
+      { name: "Marquage des reines", link: "/santedesruches/marquagedesreines" },
+      { name: "Suivi sanitaire", link: "/santedesruches/enconstruction" },
+      { name: "Plantes melifères", link: "/santedesruches/enconstruction" },
+      { name: "GDS", link: "/santedesruches/enconstruction" },
+      { name: "Réglementation", link: "/santedesruches/enconstruction" },
     ]
   },
   { name: "Boîte à outils", link: [
