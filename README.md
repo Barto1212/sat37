@@ -35,5 +35,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Suite des évolutions
 
-Taille de l'image du modal à fixer
-Warning dans la liste du menu
+fermeture des sous menus quand clic sur la page
