@@ -1,6 +1,5 @@
-import Test from './test'
+import List from './List'
 import styles from './header.module.scss'
-import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router'
 
@@ -78,40 +77,7 @@ const Header = ({ setModalIsOpen }) => {
           openMenu && size.width < 1050 ? styles.isMenu : ""
         }`}
         >
-          {/* <ul className={styles.list}>
-            {itemsList.map(item => {
-              const subListVisible = true
-              const isSubMenu = typeof item.link === "object"
-              const liClassName = router.asPath === item.link ? styles.activePage : styles.item
-              if (isSubMenu) {
-                return (
-                  <li key={item.name} className={liClassName}>
-                    <a className={styles.link} id={item} onClick={menuToggleHandler}>{item.name}</a>
-                    <ul className={subListVisible? styles.subList : styles.subList_hidden}>
-                      {item.link.map(item => {
-                        return (
-                          <li key={item.name} className={liClassName}>
-                            <Link href={item.link}>
-                              <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
-                            </Link>
-                          </li>
-                        )
-                        }
-                      )}
-                    </ul>
-                  </li>
-                )
-              }
-              return (
-                <li key={item.name} className={liClassName}>
-                  <Link href={item.link}>
-                    <a className={styles.link} onClick={menuToggleHandler}>{item.name}</a>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul> */}
-          <Test array={itemsList} />
+          <List array={itemsList} />
           <button className='btn-svg' onClick={handleUserClick}>
             <Image alt="user" src="/img/svg/user-regular.svg" width={25} height={25} />  
           </button>
