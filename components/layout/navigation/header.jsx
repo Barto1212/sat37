@@ -5,20 +5,6 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from 'react';
 
-const itemsList = [
-  { name: "Actualités", link: "/" },
-  { name: "Info", link: [
-      { name: "Fiscalité", link: "info/fiscalite" },
-      { name: "Rucher école", link: "info/rucherecole" },
-      { name: "Mielerie", link: "info/enconstruction" },
-    ]
-  },
-  { name: "Présentation", link: "/presentation" },
-  { name: "Adhésion", link: "/adhesion" },
-  // {name: "Fiscalité", link: "/fiscalite"},
-  // {name: "Mielerie", link: "/mielerie"},
-]
-
 const Header = ({ setModalIsOpen }) => {
   const [openMenu, setOpenMenu] = useState(false)
   const [size, setSize] = useState({
@@ -73,7 +59,7 @@ const Header = ({ setModalIsOpen }) => {
           openMenu && size.width < 1050 ? styles.isMenu : ""
         }`}
         >
-          <List array={itemsList} />
+          <List />
           <button className='btn-svg' onClick={handleUserClick}>
             <Image alt="user" src="/img/svg/user-regular.svg" width={25} height={25} />  
           </button>

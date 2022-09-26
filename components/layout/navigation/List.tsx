@@ -2,6 +2,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { useRouter } from "next/router"
 import styles from "./header.module.scss"
+import { structure } from "./structure"
 
 const ItemSimple = ({ item }) => {
   const router = useRouter()
@@ -37,14 +38,14 @@ const ItemAOuvrir = ({ children, item, path, setPath }) => {
   )
 }
 
-const List = ({ array }) => {
+const List = () => {
   const [path, setPath] = useState({
     location: "",
     openMenu: ""
   })
   return (
     <ul>
-      {array.map(item => {
+      {structure.map(item => {
         if (typeof item.link === "object") {
           return (
             <ItemAOuvrir path={path} setPath={setPath} key={item.name} item={item}>
