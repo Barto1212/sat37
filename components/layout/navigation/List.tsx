@@ -14,11 +14,22 @@ const ItemSimple = ({ item }) => {
   )
 }
 
-const ItemAOuvrir = ({ children, item }) => {
-  const [open, setOpen] = useState(false)
+const ItemAOuvrir = ({ children, item, path, setPath }) => {
+  const menuName = item.link[0].link.split("/")[0]
+  const { pathname } = useRouter()
+  const open = menuName === path.openMenu
+  const isActive = pathname.includes(menuName)
+  const handleClick = () => {
+    setPath(old => {
+      if (open) {
+        return { ...old, openMenu: "" }
+      }
+    return  { ...old, openMenu: menuName }
+    })
+  }
   return (
-    <li className={open ? styles.activePage : ""}>
-      <a onClick={() => setOpen(o => !o)}>{item.name}</a>
+    <li className={isActive ? styles.activePage : ""}>
+      <a onClick={handleClick}>{item.name}</a>
       <ul className={open ? "" : styles.hidden}>
         {children}
       </ul>
@@ -27,12 +38,16 @@ const ItemAOuvrir = ({ children, item }) => {
 }
 
 const List = ({ array }) => {
+  const [path, setPath] = useState({
+    location: "",
+    openMenu: ""
+  })
   return (
     <ul>
       {array.map(item => {
         if (typeof item.link === "object") {
           return (
-            <ItemAOuvrir key={item.name} item={item}>
+            <ItemAOuvrir path={path} setPath={setPath} key={item.name} item={item}>
               {item.link.map((item) => <ItemSimple key={item.name} item={item} />)}
             </ItemAOuvrir>
           )

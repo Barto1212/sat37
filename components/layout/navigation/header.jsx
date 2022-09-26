@@ -1,8 +1,6 @@
 import List from './List'
 import styles from './header.module.scss'
 import Image from 'next/image';
-import { useRouter } from 'next/router'
-
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from 'react';
@@ -10,11 +8,17 @@ import { useState, useEffect } from 'react';
 const itemsList = [
   { name: "Actualités", link: "/" },
   { name: "Info", link: [
-    { name: "Fiscalité", link: "info/fiscalite" },
-    { name: "Rucher école", link: "info/rucherecole" },
-    { name: "Mielerie", link: "info/mielerie" },
-  ]
+      { name: "Fiscalité", link: "info/fiscalite" },
+      { name: "Rucher école", link: "info/rucherecole" },
+      { name: "Mielerie", link: "info/mielerie" },
+    ]
   },
+  { name: "Info 2", link: [
+    { name: "Fiscalité", link: "info2/fiscalite" },
+    { name: "Rucher école", link: "info2/rucherecole" },
+    { name: "Mielerie", link: "info2/mielerie" },
+  ]
+},
   { name: "Présentation", link: "/presentation" },
   { name: "Adhésion", link: "/adhesion" },
   // {name: "Fiscalité", link: "/fiscalite"},
@@ -23,8 +27,6 @@ const itemsList = [
 
 const Header = ({ setModalIsOpen }) => {
   const [openMenu, setOpenMenu] = useState(false)
-  const router = useRouter()
-
   const [size, setSize] = useState({
     width: undefined,
     height: undefined
