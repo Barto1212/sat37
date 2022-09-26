@@ -16,7 +16,7 @@ const ItemSimple = ({ item }) => {
 }
 
 const ItemAOuvrir = ({ children, item, path, setPath }) => {
-  const menuName = item.link[0].link.split("/")[0]
+  const menuName = item.link[0].link.split("/")[1]
   const { pathname } = useRouter()
   const open = menuName === path.openMenu
   const isActive = pathname.includes(menuName)
@@ -40,7 +40,6 @@ const ItemAOuvrir = ({ children, item, path, setPath }) => {
 
 const List = () => {
   const [path, setPath] = useState({
-    location: "",
     openMenu: ""
   })
   return (

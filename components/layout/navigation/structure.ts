@@ -1,9 +1,9 @@
 export const structure = [
   { name: "Actualités", link: "/" },
   { name: "Info", link: [
-      { name: "Fiscalité", link: "info/fiscalite" },
-      { name: "Rucher école", link: "info/enconstruction" },
-      { name: "Mielerie", link: "info/enconstruction" },
+      { name: "Fiscalité", link: "/info/fiscalite" },
+      { name: "Rucher école", link: "/info/enconstruction" },
+      { name: "Mielerie", link: "/info/enconstruction" },
     ]
   },
   { name: "Présentation", link: "/presentation" },
