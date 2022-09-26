@@ -10,15 +10,9 @@ const itemsList = [
   { name: "Info", link: [
       { name: "Fiscalité", link: "info/fiscalite" },
       { name: "Rucher école", link: "info/rucherecole" },
-      { name: "Mielerie", link: "info/mielerie" },
+      { name: "Mielerie", link: "info/enconstruction" },
     ]
   },
-  { name: "Info 2", link: [
-    { name: "Fiscalité", link: "info2/fiscalite" },
-    { name: "Rucher école", link: "info2/rucherecole" },
-    { name: "Mielerie", link: "info2/mielerie" },
-  ]
-},
   { name: "Présentation", link: "/presentation" },
   { name: "Adhésion", link: "/adhesion" },
   // {name: "Fiscalité", link: "/fiscalite"},
