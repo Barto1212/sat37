@@ -1,8 +1,8 @@
-import Layout from "../components/layout/layout"
-import Revues from '../components/text/cotisation/Revues'
-import EcoEmballages from "../components/text/cotisation/EcoEmballages"
-import Assurance from '../components/text/cotisation/Assurance'
-import RucherEcole from '../components/text/cotisation/RucherEcole'
+import Layout from "@layout"
+import Revues from '@text/cotisation/Revues'
+import EcoEmballages from "@text/cotisation/EcoEmballages"
+import Assurance from '@text/cotisation/Assurance'
+import RucherEcole from '@text/cotisation/RucherEcole'
 import Image from "next/image"
 
 interface articleProp {

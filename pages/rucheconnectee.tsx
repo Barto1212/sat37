@@ -1,4 +1,4 @@
-import Layout from "../components/layout/layout"
+import Layout from "@layout"
 export default function Adhesion () {
 	return (
 		<Layout>
