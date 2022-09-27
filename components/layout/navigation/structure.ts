@@ -15,9 +15,9 @@ export const structure = [
     ]
   },
   { name: "Boîte à outils", link: [
-    { name: "Tutos bricolage", link: "/boiteaoutils/fiscalite" },
+    { name: "Bricolage", link: "/boiteaoutils/bricolage" },
     { name: "Recettes", link: "/boiteaoutils/enconstruction" },
-    { name: "Fiscalité", link: "/boiteaoutils/enconstruction" },
+    { name: "Fiscalité", link: "/boiteaoutils/fiscalite" },
     { name: "Annonces", link: "/boiteaoutils/enconstruction" },
   ]
 },
