@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Header from './navigation/header'
-import styles from './layout.module.scss'
 import Modal from '../Modal'
 import { useState } from 'react'
+import Footer from './footer'
 
 export const siteTitle = "L'apiculture tourangelle"
 
@@ -27,7 +27,8 @@ export default function Layout({
       </Head>
       <Modal open={modalIsOpen} onClose={closeModal} />
       <Header setModalIsOpen={setModalIsOpen} />
-      <main className={styles.container}>{children}</main>
+      <main className="content">{children}</main>
+      <Footer />
     </>
   )
 }

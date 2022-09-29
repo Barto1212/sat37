@@ -5,7 +5,7 @@ import { SnackbarProvider } from 'notistack'
 function App({ Component, pageProps }: AppProps) {
   return (
     <SnackbarProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </SnackbarProvider>
   )
 }

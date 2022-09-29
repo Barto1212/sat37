@@ -9,7 +9,20 @@ body {
   font-size: 100%;
   font-family: $Poppins;
   color: $textLight;
+  display: flex;
+  flex-direction: column;
+}
 
+.content {
+  padding: 1.6rem;
+  flex-grow: 1;
+  // background-color: blue;
+}
+
+footer {
+  text-align: center;
+  color: $light;
+  // background-color: $dark;
 }
 
 #root {
