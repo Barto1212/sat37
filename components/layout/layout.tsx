@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Header from './navigation/header'
-import { useState } from 'react'
 import Footer from './footer'
 
 export const siteTitle = "L'apiculture tourangelle"

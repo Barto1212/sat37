@@ -4,7 +4,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 export default function Adhesion () {
 	return (
 		<Layout>
-			<Worker workerUrl={"https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js"}>
+			<Worker workerUrl={"https://unpkg.com/pdfjs-dist@3.3.122/build/pdf.worker.min.js"}>
 				<Viewer fileUrl="/pdf/plantes-attractives-abeilles.pdf" />
 			</Worker>
 		</Layout>
