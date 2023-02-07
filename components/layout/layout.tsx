@@ -1,14 +1,11 @@
 import Head from 'next/head'
 import Header from './navigation/header'
 import Footer from './footer'
+import type { ReactNode } from 'react'
 
 export const siteTitle = "L'apiculture tourangelle"
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Head>

@@ -1,29 +1,31 @@
-import Layout from "@layout";
-import Revues from "@text/cotisation/Revues";
-import EcoEmballages from "@text/cotisation/EcoEmballages";
-import Assurance from "@text/cotisation/Assurance";
-import RucherEcole from "@text/cotisation/RucherEcole";
-import Image from "next/image";
+import Layout from '@layout'
+import Revues from '@text/cotisation/Revues'
+import EcoEmballages from '@text/cotisation/EcoEmballages'
+import Assurance from '@text/cotisation/Assurance'
+import RucherEcole from '@text/cotisation/RucherEcole'
+import Image from 'next/image'
 
 interface articleProp {
-  children: JSX.Element;
-  title: string | JSX.Element;
+  children: JSX.Element
+  title: string | JSX.Element
+  subtitle?: string | JSX.Element
 }
 
-const ArticleLi: React.FC<articleProp> = ({ children, title }) => {
+const ArticleLi: React.FC<articleProp> = ({ children, title, subtitle }) => {
   return (
     <li className="grid__item">
       <h2 className="grid__item__title">{title}</h2>
+      {subtitle && <div className="grid__item__subtitle">{subtitle}</div>}
       <div className="grid__item__body">{children}</div>
     </li>
-  );
-};
+  )
+}
 
 export default function Adhesion() {
   return (
     <Layout>
       <div className="container">
-        <h1 className="title">Votre cotisation 2022</h1>
+        <h1 className="title">Cotisation base 2023: 25€</h1>
         <ul className="grid">
           <ArticleLi title="Revues">
             <Revues />
@@ -56,5 +58,5 @@ export default function Adhesion() {
 				alt="Abeilles entrée ruche"
 			/> */}
     </Layout>
-  );
+  )
 }
