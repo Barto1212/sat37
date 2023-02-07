@@ -16,20 +16,20 @@ export const structure = [
         name: "Marquage des reines",
         link: "/santedesruches/marquagedesreines",
       },
-      { name: "Suivi sanitaire", link: "/santedesruches/enconstruction" },
+      { name: "Suivi sanitaire", link: "/santedesruches/suiviSanitaire" },
       {
         name: "Plantes melifères",
         link: "/santedesruches/listePlantesMelliferes",
       },
       { name: "GDS", link: "/santedesruches/gds" },
-      { name: "Réglementation", link: "/santedesruches/enconstruction" },
+      { name: "Réglementation", link: "/santedesruches/reglementation" },
     ],
   },
   {
     name: "Boîte à outils",
     link: [
       { name: "Bricolage", link: "/boiteaoutils/bricolage" },
-      { name: "Recettes", link: "/boiteaoutils/enconstruction" },
+      { name: "Recettes", link: "/boiteaoutils/recettes" },
       { name: "Fiscalité", link: "/boiteaoutils/fiscalite" },
       { name: "Annonces", link: "/boiteaoutils/enconstruction" },
     ],

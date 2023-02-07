@@ -14,13 +14,11 @@ export default function Gds() {
           regroupés dans une fédération régionale.
         </p>
         <p> GDS Centre est la Fédération Régionale des 6 GDS de la Région.</p>
-        <p>
-          Nos principaux objectifs sont de :
-          <ul>
-            <li>Coordonner des plans régionaux</li>
-            <li>Représenter les GDS auprès des instances régionales</li>
-          </ul>
-        </p>
+        Nos principaux objectifs sont de :
+        <ul>
+          <li>Coordonner des plans régionaux</li>
+          <li>Représenter les GDS auprès des instances régionales</li>
+        </ul>
         <p>
           Les GDS travaillent donc en réseau. II y a d'ailleurs mutualisation
           des moyens matériels et humains. Cette mutualisation permet
