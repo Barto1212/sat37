@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Header from './navigation/header'
-import Modal from '../Modal'
 import { useState } from 'react'
 import Footer from './footer'
 
@@ -11,8 +10,6 @@ export default function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const [modalIsOpen, setModalIsOpen] = useState(false)
-  const closeModal = (o) => setModalIsOpen(!o)
   return (
     <>
       <Head>
@@ -25,8 +22,7 @@ export default function Layout({
         />
         <meta name="og:title" content={siteTitle} />
       </Head>
-      <Modal open={modalIsOpen} onClose={closeModal} />
-      <Header setModalIsOpen={setModalIsOpen} />
+      <Header />
       <main className="content">{children}</main>
       <Footer />
     </>

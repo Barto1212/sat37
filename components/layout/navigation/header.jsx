@@ -5,16 +5,13 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from 'react';
 
-const Header = ({ setModalIsOpen }) => {
+const Header = () => {
   const [openMenu, setOpenMenu] = useState(false)
   const [size, setSize] = useState({
     width: undefined,
     height: undefined
   })
-  const handleUserClick = () => {
-    setModalIsOpen(o => !o)
-    setOpenMenu(o => !o)
-  }
+
   useEffect(() => {
       setSize({
         width: window.innerWidth,
@@ -60,9 +57,6 @@ const Header = ({ setModalIsOpen }) => {
         }`}
         >
           <List />
-          <button className='btn-svg' onClick={handleUserClick}>
-            <Image alt="user" src="/img/svg/user-regular.svg" width={25} height={25} />  
-          </button>
         </nav>
         <div className={styles.header__content__toggle}>
           {openMenu ? <AiOutlineClose onClick={menuToggleHandler} /> : <BiMenuAltRight onClick={menuToggleHandler} />}
