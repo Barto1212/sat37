@@ -19,7 +19,11 @@
   padding: 1.6rem;
   flex-grow: 1;
 }
-
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
 footer {
   text-align: center;
   color: $light;
@@ -40,7 +44,5 @@ footer {
 @import "./dev/image.scss";
 @import "./dev/titles.scss";
 @import "./dev/butons.scss";
-@import "./dev/modal.scss";
-@import "./dev/input.scss";
-@import "./dev/containers.scss";
+@import "./dev/stack.scss";
 @import "./dev/grid.scss";
