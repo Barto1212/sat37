@@ -3,7 +3,7 @@ import Revues from '@text/cotisation/Revues'
 import EcoEmballages from '@text/cotisation/EcoEmballages'
 import Assurance from '@text/cotisation/Assurance'
 import RucherEcole from '@text/cotisation/RucherEcole'
-import Image from 'next/image'
+import ExportedImage from 'next-image-export-optimizer'
 
 interface articleProp {
   children: JSX.Element
@@ -32,7 +32,7 @@ export default function Adhesion() {
           </ArticleLi>
           <ArticleLi
             title={
-              <Image
+              <ExportedImage
                 src="/img/eco-emballages.png"
                 alt="Eco emballages"
                 width={200}
@@ -51,7 +51,7 @@ export default function Adhesion() {
         </ul>
       </div>
       {/* 			
-			<Image
+			<ExportedImage
 				src="/img/abeilles-entree-1920-1080.jpg"
 				width={800}
 				height={450}

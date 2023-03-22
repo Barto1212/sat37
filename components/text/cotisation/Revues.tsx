@@ -1,5 +1,4 @@
-import Image from 'next/image'
-
+import ExportedImage from "next-image-export-optimizer";
 const Revues = () => {
   const revues = [
     {
@@ -36,7 +35,7 @@ const Revues = () => {
           {revues.map((revue) => (
             <tr key={revue.link}>
               <td>
-                <Image
+                <ExportedImage
                   src={`/img/revues/${revue.link}`}
                   alt={revue.name}
                   width={revue.size.with}

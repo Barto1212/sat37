@@ -1,6 +1,6 @@
-import Layout from "@layout";
-import style from "./marquagedesreines.module.scss";
-import Image from "next/image";
+import Layout from '@layout'
+import style from './marquagedesreines.module.scss'
+import ExportedImage from 'next-image-export-optimizer'
 const Circle = ({ color }) => {
   return (
     <div className={style.circle}>
@@ -10,16 +10,16 @@ const Circle = ({ color }) => {
         </g>
       </svg>
     </div>
-  );
-};
+  )
+}
 
 const couleurs = [
-  { couleur: "bleue", endYear1: 0, endYear2: 5, code: "#0000FF" },
-  { couleur: "blanche", endYear1: 1, endYear2: 6, code: "#FFFFFF" },
-  { couleur: "jaune", endYear1: 2, endYear2: 7, code: "#FFCE30" },
-  { couleur: "rouge", endYear1: 3, endYear2: 8, code: "#FF0000" },
-  { couleur: "verte", endYear1: 4, endYear2: 9, code: "#008000" },
-];
+  { couleur: 'bleue', endYear1: 0, endYear2: 5, code: '#0000FF' },
+  { couleur: 'blanche', endYear1: 1, endYear2: 6, code: '#FFFFFF' },
+  { couleur: 'jaune', endYear1: 2, endYear2: 7, code: '#FFCE30' },
+  { couleur: 'rouge', endYear1: 3, endYear2: 8, code: '#FF0000' },
+  { couleur: 'verte', endYear1: 4, endYear2: 9, code: '#008000' },
+]
 export default function Adhesion() {
   return (
     <Layout>
@@ -31,7 +31,7 @@ export default function Adhesion() {
             naissance :
           </h2>
           <div className="photo photo--left">
-            <Image
+            <ExportedImage
               src="/img/Reine.jpg"
               alt="Reine abeille"
               width={1684 * 0.3}
@@ -51,11 +51,11 @@ export default function Adhesion() {
                     {/* </div> */}
                   </div>
                 </li>
-              );
+              )
             })}
           </ul>
         </div>
       </div>
     </Layout>
-  );
+  )
 }

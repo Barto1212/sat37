@@ -1,5 +1,5 @@
-import Layout from "@layout";
-import Image from "next/image";
+import Layout from '@layout'
+import ExportedImage from 'next-image-export-optimizer'
 export default function Adhesion() {
   return (
     <Layout>
@@ -18,7 +18,7 @@ export default function Adhesion() {
         <p>
           Pour profiter pleinement de cette installation (chambre chaude,
           extracteurs manuels et electriques ...) et afin de planifier la mise à
-          votre disposition de tout le matériel nécessaire,{" "}
+          votre disposition de tout le matériel nécessaire,{' '}
           <strong>vous devez contacter la responsable</strong> de la miellerie;
           <br />
           Elle vous indiquera les crénaux disponibles et reservera celui qui
@@ -27,7 +27,7 @@ export default function Adhesion() {
         <div className="container">
           <div className="stack-horizontal">
             <div className="stack-vertical">
-              <Image
+              <ExportedImage
                 src="/img/corbeelsAnnickMiellerie.png"
                 alt="Annick Corbeels"
                 width={190}
@@ -49,5 +49,5 @@ export default function Adhesion() {
         </div>
       </div>
     </Layout>
-  );
+  )
 }

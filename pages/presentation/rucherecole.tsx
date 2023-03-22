@@ -1,12 +1,12 @@
-import Layout from "@layout";
-import Image from "next/image";
+import Layout from '@layout'
+import ExportedImage from 'next-image-export-optimizer'
 export default function RucherEcole() {
   return (
     <Layout>
       <div className="container">
         <h1>Rucher école</h1>
         <div className="photo photo--left">
-          <Image
+          <ExportedImage
             src="/img/rucher-ecole/cours.jpg"
             alt="Rucher école"
             width={1063 * 0.7}
@@ -32,7 +32,7 @@ export default function RucherEcole() {
           rucher plutôt basé sur la production de miel.
         </p>
         {/* <div className="photo photo--right">
-				<Image
+				<ExportedImage
 					src='/img/rucher-ecole/ouverture-ruche.jpg'
 					alt="Ouverture d'une ruche"
 					width={425}
@@ -40,7 +40,7 @@ export default function RucherEcole() {
 				/>
 			</div> */}
         <div className="photo photo--right">
-          <Image
+          <ExportedImage
             src="/img/rucher-ecole/marquage-des-reines.jpg"
             alt="Marquage des reines"
             width={768 * 0.5}
@@ -74,5 +74,5 @@ export default function RucherEcole() {
         </p>
       </div>
     </Layout>
-  );
+  )
 }
