@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import styles from './header.module.scss'
 import { structure } from './structure'
 
-const ItemSimple = ({ item }) => {
+const Item = ({ item }) => {
   const router = useRouter()
   return (
     <>
@@ -15,7 +15,7 @@ const ItemSimple = ({ item }) => {
   )
 }
 
-const ItemAOuvrir = ({ children, item, statesubListOpen }) => {
+const ExpandableItem = ({ children, item, statesubListOpen }) => {
   const [subListOpen, setsubListOpen] = statesubListOpen
   const menuName = item.link[0].link.split('/')[1]
   const { pathname } = useRouter()
@@ -39,18 +39,18 @@ const List = () => {
       {structure.map((item) => {
         if (typeof item.link === 'object') {
           return (
-            <ItemAOuvrir
+            <ExpandableItem
               statesubListOpen={statesubListOpen}
               key={item.name}
               item={item}
             >
               {item.link.map((item) => (
-                <ItemSimple key={item.name} item={item} />
+                <Item key={item.name} item={item} />
               ))}
-            </ItemAOuvrir>
+            </ExpandableItem>
           )
         }
-        return <ItemSimple key={item.name} item={item} />
+        return <Item key={item.name} item={item} />
       })}
     </ul>
   )
