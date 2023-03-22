@@ -1,10 +1,11 @@
 @import "./variables.scss";
-// @import "./dev/reset.scss";
+@import './dev/reset.scss';
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-}
+// <div id="__next">
+//    <header class="header"/>
+//    <main class="content"></main>
+//    <footer></footer>
+// </div>
 
 #__next {
   width: 100%;
@@ -30,19 +31,7 @@ footer {
   background-color: $dark;
 }
 
-#root {
-  height: 100%;
-}
-// p {
-//   text-indent: 1rem;
-//   padding-top: 1rem;
-//   &:first-chil {
-//     text-indent: 0;
-//   }
-// }
-
 @import "./dev/image.scss";
 @import "./dev/titles.scss";
-@import "./dev/butons.scss";
 @import "./dev/stack.scss";
 @import "./dev/article-list.scss";
