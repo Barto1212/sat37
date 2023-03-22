@@ -1,48 +1,48 @@
-import Layout from "@layout";
-import moment from "moment";
-import { getSortedPostsData } from "../utils/posts";
-moment.locale("fr");
+import Layout from '@layout'
+import moment from 'moment'
+import { getSortedPostsData } from '../utils/posts'
+moment.locale('fr')
 
 interface Article {
-  id: string;
-  date: string;
-  title: string;
-  content?: string;
+  id: string
+  date: string
+  title: string
+  content?: string
 }
 interface Articles {
-  articles: Article[];
+  articles: Article[]
 }
 
 export async function getStaticProps() {
-  const articles = getSortedPostsData();
+  const articles = getSortedPostsData()
   return {
     props: {
       articles,
     },
-  };
+  }
 }
 
 const News: React.FC<Articles> = ({ articles }) => {
   return (
     <Layout>
       <div className="container">
-        <ul className="grid">
+        <ul className="article-list">
           {articles.map(({ id, date, title, content }) => (
-            <li className="grid__item" key={id}>
-              <h2 className="grid__item__title">{title}</h2>
-              <div className="grid__item__date">{date}</div>
+            <li className="article-list__item" key={id}>
+              <h2 className="article-list__item__title">{title}</h2>
+              <div className="article-list__item__date">{date}</div>
               <div
                 dangerouslySetInnerHTML={{
                   __html: content,
                 }}
-                className="grid__item__body"
+                className="article-list__item__body"
               ></div>
             </li>
           ))}
         </ul>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default News;
+export default News

@@ -11,5 +11,12 @@
   "editor.suggest.insertMode": "replace",
   "workbench.tree.indent": 15,
   "workbench.tree.renderIndentGuides": "always",
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 3000,
+  // Thème
+  "editor.fontFamily": " 'Fira Code', 'Cascadia Code','JetBrains Mono','Operator Mono Lig', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 20,
+  "workbench.colorTheme": "Monokai"
 }

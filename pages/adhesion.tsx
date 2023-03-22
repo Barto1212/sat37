@@ -13,10 +13,12 @@ interface articleProp {
 
 const ArticleLi: React.FC<articleProp> = ({ children, title, subtitle }) => {
   return (
-    <li className="grid__item">
-      <h2 className="grid__item__title">{title}</h2>
-      {subtitle && <div className="grid__item__subtitle">{subtitle}</div>}
-      <div className="grid__item__body">{children}</div>
+    <li className="article-list__item">
+      <h2 className="article-list__item__title">{title}</h2>
+      {subtitle && (
+        <div className="article-list__item__subtitle">{subtitle}</div>
+      )}
+      <div className="article-list__item__body">{children}</div>
     </li>
   )
 }
@@ -26,7 +28,7 @@ export default function Adhesion() {
     <Layout>
       <div className="container">
         <h1 className="title">Cotisation base 2023: 25€</h1>
-        <ul className="grid">
+        <ul className="article-list">
           <ArticleLi title="Revues">
             <Revues />
           </ArticleLi>
